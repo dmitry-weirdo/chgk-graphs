@@ -37,6 +37,12 @@ data class Tournament (
         }
     }
 
+    fun addTeams(teamsToAdd: List<Team>) {
+        for (team in teamsToAdd) {
+            teams.add(team)
+        }
+    }
+
     val totalTeams: Int
         get() = teams.size
 
@@ -47,4 +53,10 @@ data class Tournament (
             tours.add(tour)
         }
     }
+
+    val firstTourNum: Int
+        get() = 1 // todo: extract to a constant
+
+    val lastTourNum: Int
+        get() = firstTourNum + toursCount - 1
 }

@@ -1,6 +1,7 @@
 package com.chgk.excel
 
 import com.chgk.model.Team
+import com.chgk.model.Tournament
 import org.apache.logging.log4j.kotlin.Logging
 import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.ss.usermodel.Workbook
@@ -9,7 +10,7 @@ import java.io.IOException
 
 object XlsxParser : Logging {
 
-    private const val FILE_NAME = "Результаты Большой игры - 4ОЧЧ.xlsx"
+    const val FILE_NAME = "Результаты Большой игры - 4ОЧЧ.xlsx"
 
     private const val TEAMS_SHEET_NAME = "Команды"
     private const val TEAMS_SHEET_INDEX = 0
@@ -19,16 +20,30 @@ object XlsxParser : Logging {
         parseWikiPagesDataSafe()
     }
 
+    fun parseTournament(tournament: Tournament, fileName: String) {
+        val teams = parseTeamsSheet(fileName)
+        // todo: validate teams (unique names, unique ids, unique numbers)
+        tournament.addTeams(teams)
+
+        for (tourNumber in tournament.firstTourNum..tournament.lastTourNum) {
+            parseTourSheet(fileName, tourNumber, tournament.questionsPerTour)
+        }
+
+        // todo: validate tour results (each team must have all results, each team must be present in the teams list)
+    }
+
 //    fun parseWikiPagesDataSafe(): List<WikiPageData> {
     fun parseWikiPagesDataSafe() {
         try {
-            parseTeamsSheet()
-            parseTourSheet(1)
-            parseTourSheet(2)
-            parseTourSheet(3)
-            parseTourSheet(4)
-            parseTourSheet(5)
-            parseTourSheet(6)
+            val fileName = FILE_NAME
+
+            parseTeamsSheet(fileName)
+            parseTourSheet(fileName, 1)
+            parseTourSheet(fileName, 2)
+            parseTourSheet(fileName, 3)
+            parseTourSheet(fileName, 4)
+            parseTourSheet(fileName, 5)
+            parseTourSheet(fileName, 6)
         }
         catch (e: IOException) {
             throw RuntimeException(e)
@@ -36,8 +51,8 @@ object XlsxParser : Logging {
     }
 
     @Throws(IOException::class)
-    fun parseTeamsSheet() {
-        val workbook = parseWorkbook(FILE_NAME)
+    fun parseTeamsSheet(fileName: String): List<Team> {
+        val workbook = parseWorkbook(fileName)
 
         val sheet = workbook.getSheet(TEAMS_SHEET_NAME)
 //        val sheet = workbook.getSheetAt(TEAMS_SHEET_INDEX)
@@ -73,19 +88,21 @@ object XlsxParser : Logging {
         }
 
         logger.info("Total teams in the tournament: ${teams.size}")
-//        return teams
+        return teams
     }
 
     @Throws(IOException::class)
     private fun parseWorkbook(fileName: String): Workbook {
+        // todo: use global file path, not a relative resource file name
+
         javaClass.classLoader.getResourceAsStream(fileName).use { stream ->  // getResource does not work within jar!
             return XSSFWorkbook(stream)
         }
     }
 
     @Throws(IOException::class)
-    fun parseTourSheet(tourNumber: Int, questionsInTour: Int = 12) {
-        val workbook = parseWorkbook(FILE_NAME)
+    fun parseTourSheet(fileName: String, tourNumber: Int, questionsInTour: Int = 12) {
+        val workbook = parseWorkbook(fileName)
 
         val sheetName = getTourSheetName(tourNumber)
         val sheet = workbook.getSheet(sheetName)

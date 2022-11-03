@@ -1,5 +1,6 @@
 package com.chgk
 
+import com.chgk.excel.XlsxParser
 import com.chgk.model.Team
 import com.chgk.model.Tour
 import com.chgk.model.Tournament
@@ -10,6 +11,37 @@ class Main : Logging {
     companion object X : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
+            val tournament = Tournament(
+                6636,
+                "Открытый чемпионат Чехии по «Что? Где? Когда?»",
+                "Прага"
+            )
+
+            // tours are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Гельфанд"),
+                Tour(2, "Мерзляков"),
+                Tour(3, "Лунёва"),
+                Tour(4, "Гельфанд"),
+                Tour(5, "Мерзляков"),
+                Tour(6, "Скиренко / Пономарёв"),
+            )
+
+            val fileName = XlsxParser.FILE_NAME
+            XlsxParser.parseTournament(tournament, fileName)
+
+            logger.info("""
+                Tournament ${tournament.name} parsed from file $fileName.
+                Total teams: ${tournament.totalTeams}
+            """.trimIndent())
+/*
+            if (false) {
+                manualTest()
+            }
+*/
+        }
+
+        private fun manualTest() {
             val tournament = Tournament(
                 6636,
                 "Открытый чемпионат Чехии по «Что? Где? Когда?»",
