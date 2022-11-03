@@ -5,11 +5,13 @@ package com.chgk.model
  * @property id идентификатор команды на сайтах рейтинга
  * @property name название команды
  * @property city город, из которого команда. Если команда сборная, то <code>null</code>.
+ * @property tournamentNumber номер команды в турнире
  */
 data class Team (
     val id: Int,
     val name: String,
     val city: String?, // todo: probably make city a separate class /  enum
+    val tournamentNumber: Int
     // todo: отличать сборные
     // todo: состав команды
 ) {

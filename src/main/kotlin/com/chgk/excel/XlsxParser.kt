@@ -22,7 +22,13 @@ object XlsxParser : Logging {
 //    fun parseWikiPagesDataSafe(): List<WikiPageData> {
     fun parseWikiPagesDataSafe() {
         try {
-            parseWikiPagesData()
+            parseTeamsSheet()
+            parseTourSheet(1)
+            parseTourSheet(2)
+            parseTourSheet(3)
+            parseTourSheet(4)
+            parseTourSheet(5)
+            parseTourSheet(6)
         }
         catch (e: IOException) {
             throw RuntimeException(e)
@@ -30,7 +36,7 @@ object XlsxParser : Logging {
     }
 
     @Throws(IOException::class)
-    fun parseWikiPagesData() {
+    fun parseTeamsSheet() {
         val workbook = parseWorkbook(FILE_NAME)
 
         val sheet = workbook.getSheet(TEAMS_SHEET_NAME)
@@ -53,16 +59,14 @@ object XlsxParser : Logging {
 //            val number = getStringSafe(row, 3)
             val number = getIntSafe(row, 3)
 
-            val team = Team(id!!, name, city) // todo: also pass team number in the tournament
-
-            // todo: parse to teams list
+            val team = Team(id!!, name, city, number!!)
 
             logger.info("""
                 Team parsed:
-                    name: ${name} 
-                    city: ${city} 
-                    id: ${id} 
-                    number: ${number} 
+                    name: ${team.name} 
+                    city: ${team.city} 
+                    id: ${team.id} 
+                    number: ${team.tournamentNumber} 
             """.trimIndent())
 
             teams.add(team)
@@ -78,6 +82,66 @@ object XlsxParser : Logging {
             return XSSFWorkbook(stream)
         }
     }
+
+    @Throws(IOException::class)
+    fun parseTourSheet(tourNumber: Int, questionsInTour: Int = 12) {
+        val workbook = parseWorkbook(FILE_NAME)
+
+        val sheetName = getTourSheetName(tourNumber)
+        val sheet = workbook.getSheet(sheetName)
+
+        val firsRowNum = sheet.firstRowNum + 1 // skip header row
+        val lastRowNum = sheet.lastRowNum
+
+        for (rowNum in firsRowNum..lastRowNum) {
+            val row = sheet.getRow(rowNum)
+
+            if (row == null) { // skip empty rows
+                logger.info("Row number $rowNum is null. Skipping this row.")
+                continue
+            }
+
+            var columnNum = 0
+
+            val teamName = getStringSafe(row, columnNum++)
+            val teamCity = getStringSafe(row, columnNum++)
+            val tourNumberFromSheet = getIntSafe(row, columnNum++) // todo: we may assert this is equal to tourNumber
+            val teamNumber = getIntSafe(row, columnNum++)
+
+            if (teamNumber == null || teamNumber == 0) { // skip rows with question rating // ! empty cell is parsed to 0
+                logger.info("Row number $rowNum has no team number. Skipping this row.")
+                continue
+            }
+
+            val teamTourQuestionsAnswered = mutableListOf<Boolean>();
+
+            for (questionNumber in 1 .. questionsInTour) {
+                val questionAnsweredInt = getIntSafe(row, columnNum++)
+
+                // todo: probably check 0 or 1 and fail or set null if no value is set.
+                val questionAnswered = (questionAnsweredInt == 1) // todo: 1 to constant
+
+                teamTourQuestionsAnswered.add(questionAnswered)
+            }
+
+            // we don't parse "В туре" and "Рейтинг" from the sheet, we will calculate it by ourselves
+
+            // todo: parse to teams results list by tour
+
+            logger.info("""
+                Row: $rowNum: Team results in tour ${tourNumber} parsed:
+                    name: ${teamName} 
+                    city: ${teamCity} 
+                    number: ${teamNumber} 
+                    answers: ${teamTourQuestionsAnswered} 
+            """.trimIndent())
+
+            // todo: add to results list
+        }
+
+    }
+
+    private fun getTourSheetName(tourNumber: Int) = "Тур $tourNumber"
 
     private fun getStringSafe(row: Row, cellNumber: Int): String {
         val cell = row.getCell(cellNumber)

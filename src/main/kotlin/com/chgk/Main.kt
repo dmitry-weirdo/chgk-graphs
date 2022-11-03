@@ -39,7 +39,8 @@ class Main : Logging {
             val team = Team(
                 67959,
                 "Севрюга",
-                null
+                null,
+                15
             )
 
             logger.info("""
