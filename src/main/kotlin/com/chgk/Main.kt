@@ -1,9 +1,11 @@
 package com.chgk
 
+import com.chgk.dto.TeamQuestionsSumDto
 import com.chgk.excel.XlsxParser
 import com.chgk.model.Team
 import com.chgk.model.Tour
 import com.chgk.model.Tournament
+import com.chgk.util.JacksonUtils
 import org.apache.logging.log4j.kotlin.Logging
 
 class Main : Logging {
@@ -46,6 +48,23 @@ class Main : Logging {
             for ((index, team) in teamsByTotalCorrectAnswersDesc.withIndex()) {
                 logger.info("#${index + 1} || ${team.name} || ${team.getTourResultsInOneString()}")
             }
+
+            // write JSON file for team sums after each question
+            val sums = mutableListOf<TeamQuestionsSumDto>()
+
+            for (team in teamsByTotalCorrectAnswersDesc) {
+                val teamSums = team.getSumSeries()
+                if (teamSums.size != tournament.totalQuestions) {
+                    throw IllegalStateException("Team number ${team.tournamentNumber} (\"${team.name}\") has ${teamSums.size} result sums while the tournament has ${tournament.totalQuestions} total questions")
+                }
+
+                val sum = TeamQuestionsSumDto(team.id, team.name, team.city, team.tournamentNumber, teamSums)
+                sums.add(sum)
+            }
+
+            val filePath = "c:/java/ins-new/team-sums.json"
+            JacksonUtils.serializeToFile(filePath, sums, true)
+
 
             /*
                         if (false) {

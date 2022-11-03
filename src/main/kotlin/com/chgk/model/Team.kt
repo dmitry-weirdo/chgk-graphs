@@ -43,4 +43,23 @@ data class Team (
 
         return "$resultsByTours || ${getTotalCorrectAnswers()}"
     }
+
+    fun getSumSeries(): List<Int> {
+        val totalSumAfterEachQuestion = mutableListOf<Int>()
+
+        var totalAnswers = 0;
+
+        for (tour in tourResults) {
+            for (answerIsCorrect in tour.questionsAnswered) {
+                if (answerIsCorrect) { // question correct -> add 1 to sum on this question
+                    totalAnswers++;
+                }
+
+                // add current total sum to series
+                totalSumAfterEachQuestion.add(totalAnswers)
+            }
+        }
+
+        return totalSumAfterEachQuestion;
+    }
 }
