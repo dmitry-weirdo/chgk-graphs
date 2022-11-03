@@ -17,7 +17,7 @@ class Main : Logging {
                 "Прага"
             )
 
-            // tours are not parsed from Excel
+            // tours metadata are not parsed from Excel
             tournament.addTours(
                 Tour(1, "Гельфанд"),
                 Tour(2, "Мерзляков"),

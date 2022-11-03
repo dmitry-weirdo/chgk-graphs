@@ -1,6 +1,7 @@
 package com.chgk.excel
 
 import com.chgk.model.Team
+import com.chgk.model.TeamTourResults
 import com.chgk.model.Tournament
 import org.apache.logging.log4j.kotlin.Logging
 import org.apache.poi.ss.usermodel.Row
@@ -26,7 +27,30 @@ object XlsxParser : Logging {
         tournament.addTeams(teams)
 
         for (tourNumber in tournament.firstTourNum..tournament.lastTourNum) {
-            parseTourSheet(fileName, tourNumber, tournament.questionsPerTour)
+            val tourResults = parseTourSheet(fileName, tourNumber, tournament.questionsPerTour)
+
+            logger.info("Tour $tourNumber: ${tourResults.size} team results parsed.")
+            if (tourResults.size != tournament.totalTeams) {
+                throw IllegalStateException("Tour $tourNumber: ${tourResults.size} team results parsed, but ${tournament.totalTeams} team results expected.")
+            }
+
+            for (teamResult in tourResults) {
+                val teamByNumber = tournament.getTeam(teamResult.teamNumber) // will fail if team is not found
+                val teamByName = tournament.getTeam(teamResult.teamName) // will fail if team is not found
+
+                if (teamByNumber != teamByName) {
+                    throw IllegalStateException("Incorrect team result in tour $tourNumber: teams with number ${teamResult.teamNumber} and name \"%${teamResult.teamName}\" are different teams.")
+                }
+
+                // check that team has no result for this tour yet
+                val currentTourResult = teamByNumber.getTourResult(tourNumber)
+                if (currentTourResult != null) {
+                    throw IllegalStateException("Team ${teamByNumber.name} (number ${teamByNumber.tournamentNumber} already has results for tour $tourNumber")
+                }
+
+                // add team tour result
+                teamByNumber.addTourResult(teamResult)
+            }
         }
 
         // todo: validate tour results (each team must have all results, each team must be present in the teams list)
@@ -101,7 +125,7 @@ object XlsxParser : Logging {
     }
 
     @Throws(IOException::class)
-    fun parseTourSheet(fileName: String, tourNumber: Int, questionsInTour: Int = 12) {
+    fun parseTourSheet(fileName: String, tourNumber: Int, questionsInTour: Int = 12): List<TeamTourResults> {
         val workbook = parseWorkbook(fileName)
 
         val sheetName = getTourSheetName(tourNumber)
@@ -109,6 +133,8 @@ object XlsxParser : Logging {
 
         val firsRowNum = sheet.firstRowNum + 1 // skip header row
         val lastRowNum = sheet.lastRowNum
+
+        val teamsResults: MutableList<TeamTourResults> = ArrayList()
 
         for (rowNum in firsRowNum..lastRowNum) {
             val row = sheet.getRow(rowNum)
@@ -153,9 +179,11 @@ object XlsxParser : Logging {
                     answers: ${teamTourQuestionsAnswered} 
             """.trimIndent())
 
-            // todo: add to results list
+            val teamTourResults = TeamTourResults(tourNumber, teamName, teamNumber, teamTourQuestionsAnswered)
+            teamsResults.add(teamTourResults)
         }
 
+        return teamsResults
     }
 
     private fun getTourSheetName(tourNumber: Int) = "Тур $tourNumber"

@@ -46,6 +46,10 @@ data class Tournament (
     val totalTeams: Int
         get() = teams.size
 
+    // todo: better use maps by number and name to not iterate multiple times
+    fun getTeam(teamNumber: Int): Team = teams.first { it.tournamentNumber == teamNumber }
+    fun getTeam(teamName: String): Team = teams.first { it.name == teamName }
+
     fun addTour(tour: Tour) = tours.add(tour)
 
     fun addTours(vararg toursToAdd: Tour) {

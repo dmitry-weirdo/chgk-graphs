@@ -10,8 +10,9 @@ package com.chgk.model
 data class Team (
     val id: Int,
     val name: String,
-    val city: String?, // todo: probably make city a separate class /  enum
-    val tournamentNumber: Int
+    val city: String?, // todo: probably make city a separate class / enum
+    val tournamentNumber: Int,
+    val tourResults: MutableList<TeamTourResults> = mutableListOf()
     // todo: отличать сборные
     // todo: состав команды
 ) {
@@ -26,4 +27,10 @@ data class Team (
 
     val isNational: Boolean // сборная // todo: better naming if possible
         get() = !hasCity
+
+    fun addTourResult(tourResult: TeamTourResults) {
+        tourResults.add(tourResult)
+    }
+
+    fun getTourResult(tourNumber: Int) = tourResults.firstOrNull { it.tourNumber == tourNumber }
 }
