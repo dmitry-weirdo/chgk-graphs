@@ -1,6 +1,7 @@
 package com.chgk
 
 import com.chgk.model.Team
+import com.chgk.model.Tour
 import com.chgk.model.Tournament
 import org.apache.logging.log4j.kotlin.Logging
 
@@ -15,12 +16,22 @@ class Main : Logging {
                 "Прага"
             )
 
+            tournament.addTours(
+                Tour(1, "Гельфанд"),
+                Tour(2, "Мерзляков"),
+                Tour(3, "Лунёва"),
+                Tour(4, "Гельфанд"),
+                Tour(5, "Мерзляков"),
+                Tour(6, "Скиренко / Пономарёв"),
+            )
+
             logger.info("""
                 Tournament id: ${tournament.id} 
                 Tournament name: ${tournament.name} 
                 Link in old rating: ${tournament.linkInOldRating}
                 Link in new rating: ${tournament.linkInNewRating}
                 Tours count: ${tournament.toursCount}
+                Added tours count: ${tournament.tours.size}
                 Questions per tour: ${tournament.questionsPerTour}
                 Total questions in the tournament: ${tournament.totalQuestions}
             """.trimIndent())

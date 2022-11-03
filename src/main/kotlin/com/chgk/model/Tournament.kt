@@ -14,8 +14,11 @@ data class Tournament (
     val name: String,
     val city: String, // todo: probably make city a separate class /  enum
     // todo: add type (Турнир, синхрон, асинхрон, usw - check the rating site API)
+    // todo: add date or dates
     var toursCount: Int = 6,
-    var questionsPerTour: Int = 12
+    var questionsPerTour: Int = 12,
+    val teams: MutableList<Team> = mutableListOf(),
+    val tours: MutableList<Tour> = mutableListOf()
 ) {
     val linkInOldRating: String
         get() = "https://rating.chgk.info/tournament/${id}"
@@ -26,6 +29,22 @@ data class Tournament (
     val totalQuestions: Int
         get() = toursCount * questionsPerTour
 
-    // todo: teams
-    // todo: get total teams
+    fun addTeam(team: Team) = teams.add(team)
+
+    fun addTeams(vararg teamsToAdd: Team) {
+        for (team in teamsToAdd) {
+            teams.add(team)
+        }
+    }
+
+    val totalTeams: Int
+        get() = teams.size
+
+    fun addTour(tour: Tour) = tours.add(tour)
+
+    fun addTours(vararg toursToAdd: Tour) {
+        for (tour in toursToAdd) {
+            tours.add(tour)
+        }
+    }
 }
