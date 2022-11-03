@@ -33,4 +33,14 @@ data class Team (
     }
 
     fun getTourResult(tourNumber: Int) = tourResults.firstOrNull { it.tourNumber == tourNumber }
+
+    fun getTotalCorrectAnswers() = tourResults.sumOf { it.totalCorrectAnswers }
+
+    fun getTourResultsInOneString(): String {
+        val resultsByTours = tourResults
+            .map { it.totalCorrectAnswers }
+            .joinToString(" | ")
+
+        return "$resultsByTours || ${getTotalCorrectAnswers()}"
+    }
 }

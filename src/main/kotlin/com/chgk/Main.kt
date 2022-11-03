@@ -34,11 +34,24 @@ class Main : Logging {
                 Tournament ${tournament.name} parsed from file $fileName.
                 Total teams: ${tournament.totalTeams}
             """.trimIndent())
-/*
-            if (false) {
-                manualTest()
+
+            // aggregate operations
+            // todo: we also need to sort by rating
+            val teamsByTotalCorrectAnswersDesc = tournament
+                .teams
+                .sortedByDescending { it.getTotalCorrectAnswers() }
+
+            logger.info("===========================================")
+            logger.info("Teams by total results:")
+            for ((index, team) in teamsByTotalCorrectAnswersDesc.withIndex()) {
+                logger.info("#${index + 1} || ${team.name} || ${team.getTourResultsInOneString()}")
             }
-*/
+
+            /*
+                        if (false) {
+                            manualTest()
+                        }
+            */
         }
 
         private fun manualTest() {
