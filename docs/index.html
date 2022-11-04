@@ -258,6 +258,39 @@
         "Юнона"
     ];
 
+    const tours = [
+        {
+            author: "Гельфанд",
+            from: 1,
+            to: 12
+        },
+        {
+            author: "Мерзляков",
+            from: 13,
+            to: 24
+        },
+        {
+            author: "Лунёва",
+            from: 25,
+            to: 36
+        },
+        {
+            author: "Гельфанд",
+            from: 37,
+            to: 48
+        },
+        {
+            author: "Мерзляков",
+            from: 49,
+            to: 60
+        },
+        {
+            author: "Скиренко / Пономарёв",
+            from: 61,
+            to: 72
+        },
+    ]
+
     const series = [];
     teamsData.forEach(function(item) {
         series.push({
@@ -267,6 +300,22 @@
         });
     });
 
+    let plotBands = [];
+    tours.forEach(function(tour, index) {
+        let color = (index % 2 === 0) ? 'rgba(200, 200, 200, 0.1)' : 'rgba(68, 170, 213, 0.1)';
+
+        plotBands.push({
+            from: tour.from - 1.5,
+            to: tour.to - 0.5,
+            color: color,
+            label: {
+                text: tour.author,
+                style: {
+                    color: '#606060'
+                }
+            }
+        })
+    });
 
     Highcharts.chart('container', {
         chart: {
@@ -283,7 +332,8 @@
         },
 */
         xAxis: {
-            categories: questionNumbers
+            categories: questionNumbers,
+            plotBands: plotBands
         },
         yAxis: {
             title: {
