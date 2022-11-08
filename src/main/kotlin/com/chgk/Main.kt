@@ -42,6 +42,10 @@ class Main : Logging {
                         Total teams: ${tournament.totalTeams}
                     """.trimIndent()
             )
+
+            val filePath = "c:/java/ins-new/team-sums-ovsch-2022-3.json"
+
+            writeAggregateOperationsResultsToFile(tournament, filePath)
         }
 
         private fun parseOcch2022() {
@@ -73,6 +77,18 @@ class Main : Logging {
             )
 
             // aggregate operations
+            val filePath = "c:/java/ins-new/team-sums-ochh-2022.json"
+
+            writeAggregateOperationsResultsToFile(tournament, filePath)
+
+            /*
+                        if (false) {
+                            manualTest()
+                        }
+            */
+        }
+
+        private fun writeAggregateOperationsResultsToFile(tournament: Tournament, filePath: String) {
             // todo: we also need to sort by rating
             val teamsByTotalCorrectAnswersDesc = tournament
                 .teams
@@ -97,15 +113,7 @@ class Main : Logging {
                 sums.add(sum)
             }
 
-            val filePath = "c:/java/ins-new/team-sums.json"
             JacksonUtils.serializeToFile(filePath, sums, true)
-
-
-            /*
-                        if (false) {
-                            manualTest()
-                        }
-            */
         }
 
         private fun manualTest() {
