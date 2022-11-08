@@ -25,18 +25,13 @@ object StandardXlsxParser : Logging {
     private const val TEAM_CITY_COLUMN_HEADER = "Город"
     private const val TOUR_NUMBER_COLUMN_HEADER = "Тур"
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        parseWikiPagesDataSafe()
-    }
-
     fun parseTournament(tournament: Tournament, fileName: String) {
         val teams = parseTeamsSheet(fileName)
         // todo: validate teams (unique names, unique ids, unique numbers)
         tournament.addTeams(teams)
 
         for (tourNumber in tournament.firstTourNum..tournament.lastTourNum) {
-            val tourResults = parseTourSheet(fileName, tourNumber, tournament.questionsPerTour)
+            val tourResults = parseTourSheet(fileName, tournament, tourNumber)
 
             logger.info("Tour $tourNumber: ${tourResults.size} team results parsed.")
             if (tourResults.size != tournament.totalTeams) {
@@ -63,24 +58,6 @@ object StandardXlsxParser : Logging {
         }
 
         // todo: validate tour results (each team must have all results, each team must be present in the teams list)
-    }
-
-//    fun parseWikiPagesDataSafe(): List<WikiPageData> {
-    fun parseWikiPagesDataSafe() {
-        try {
-            val fileName = "tournament-tours-7700-07-Nov-2022 (2).xlsx"
-
-            parseTeamsSheet(fileName)
-            parseTourSheet(fileName, 1)
-            parseTourSheet(fileName, 2)
-            parseTourSheet(fileName, 3)
-            parseTourSheet(fileName, 4)
-            parseTourSheet(fileName, 5)
-            parseTourSheet(fileName, 6)
-        }
-        catch (e: IOException) {
-            throw RuntimeException(e)
-        }
     }
 
     @Throws(IOException::class)
@@ -164,13 +141,12 @@ object StandardXlsxParser : Logging {
     }
 
     @Throws(IOException::class)
-    fun parseTourSheet(fileName: String, tourNumber: Int, questionsInTour: Int = 12): List<TeamTourResults> {
+    fun parseTourSheet(fileName: String, tournament: Tournament, tourNumber: Int): List<TeamTourResults> {
         val workbook = parseWorkbook(fileName)
 
-        val sheetName = getTourSheetName(tourNumber)
-        val sheet = workbook.getSheet(sheetName)
+        val sheet = workbook.getSheetAt(TEAMS_SHEET_INDEX) // no stable name for the sheet, all results are on the same sheet
 
-        val firsRowNum = sheet.firstRowNum + 1 // skip header row
+        val firsRowNum = sheet.firstRowNum // no stable header row
         val lastRowNum = sheet.lastRowNum
 
         val teamsResults: MutableList<TeamTourResults> = ArrayList()
@@ -178,37 +154,72 @@ object StandardXlsxParser : Logging {
         for (rowNum in firsRowNum..lastRowNum) {
             val row = sheet.getRow(rowNum)
 
-            if (row == null) { // skip empty rows
-                logger.info("Row number $rowNum is null. Skipping this row.")
+            if (row == null) {
+                logger.info("Row $rowNum is null. Skip this row.")
                 continue
             }
 
+            if (!isNumeric(row, TEAM_ID_COLUMN_INDEX)) {
+                val teamIdColumnValue = getStringSafe(row, TEAM_ID_COLUMN_INDEX)
+                if (teamIdColumnValue.isBlank()) {
+                    logger.info("Row $rowNum is empty. Skip this row.")
+                    continue
+                }
+
+                if (teamIdColumnValue.equals(TEAM_ID_COLUMN_HEADER, true)) {
+                    logger.info("Row $rowNum is a header row. Skip this row.")
+                    continue
+                }
+
+                logger.info("Row $rowNum has non-numeric team id value \"$teamIdColumnValue\". Skip this row.")
+                continue
+            }
+
+            // should be the team row -> parse it
             var columnNum = 0
 
+            val teamId = getIntSafe(row, columnNum++)
             val teamName = getStringSafe(row, columnNum++)
             val teamCity = getStringSafe(row, columnNum++)
-            val tourNumberFromSheet = getIntSafe(row, columnNum++) // todo: we may assert this is equal to tourNumber
-            val teamNumber = getIntSafe(row, columnNum++)
 
-            if (teamNumber == null || teamNumber == 0) { // skip rows with question rating // ! empty cell is parsed to 0
-                logger.info("Row number $rowNum has no team number. Skipping this row.")
+            val tourNumberFromSheet = getIntSafe(row, columnNum++) // todo: we may assert this is equal to tourNumber
+            if (tourNumberFromSheet != tourNumber) {
+                logger.info("Row $rowNum has tourNumber = $tourNumberFromSheet, expected tourNumber = $tourNumber. Skip this row.")
                 continue
             }
+
+            val teamNumber = tournament.getTeamById(teamId!!).tournamentNumber
 
             val teamTourQuestionsAnswered = mutableListOf<Boolean>();
 
-            for (questionNumber in 1 .. questionsInTour) {
-                val questionAnsweredInt = getIntSafe(row, columnNum++)
+            for (questionNumber in 1 .. tournament.questionsPerTour) {
+                if (!isNumeric(row, columnNum)) {
+                    // todo: спорные тоже нужно собирать в результаты, как строки
 
-                // todo: probably check 0 or 1 and fail or set null if no value is set.
-                val questionAnswered = (questionAnsweredInt == 1) // todo: 1 to constant
+                    val controversialAnswer = getStringSafe(row, columnNum)
 
-                teamTourQuestionsAnswered.add(questionAnswered)
+                    // спорный пока засчитывается как неверный ответ
+                    logger.info("Tour $tourNumber, team $teamId (\"$teamName\"): answer \"$controversialAnswer\" is controversial. Its current result will be \"not answered\".")
+
+                    val questionAnswered = false
+
+                    teamTourQuestionsAnswered.add(questionAnswered)
+                }
+                else {
+                    // обычный ответ - + или -
+                    val questionAnsweredInt = getIntSafe(row, columnNum)
+
+                    // todo: probably check 0 or 1 and fail or set null if no value is set.
+                    val questionAnswered = (questionAnsweredInt == 1) // todo: 1 to constant
+
+                    teamTourQuestionsAnswered.add(questionAnswered)
+                }
+
+                // in any case, proceed to the next column
+                columnNum++
             }
 
             // we don't parse "В туре" and "Рейтинг" from the sheet, we will calculate it by ourselves
-
-            // todo: parse to teams results list by tour
 
             logger.info("""
                 Row: $rowNum: Team results in tour ${tourNumber} parsed:
@@ -224,8 +235,6 @@ object StandardXlsxParser : Logging {
 
         return teamsResults
     }
-
-    private fun getTourSheetName(tourNumber: Int) = "Тур $tourNumber"
 
     private fun isNumeric(row: Row, cellNumber: Int): Boolean {
         val cell = row.getCell(cellNumber) ?: return false

@@ -47,6 +47,7 @@ data class Tournament (
         get() = teams.size
 
     // todo: better use maps by number and name to not iterate multiple times
+    fun getTeamById(teamId: Int): Team = teams.first { it.id == teamId }
     fun getTeam(teamNumber: Int): Team = teams.first { it.tournamentNumber == teamNumber }
     fun getTeam(teamName: String): Team = teams.first { it.name == teamName }
 
