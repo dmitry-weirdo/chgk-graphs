@@ -1,6 +1,7 @@
 package com.chgk
 
 import com.chgk.dto.TeamQuestionsSumDto
+import com.chgk.excel.StandardXlsxParser
 import com.chgk.excel.XlsxParser
 import com.chgk.model.Team
 import com.chgk.model.Tour
@@ -13,10 +14,42 @@ class Main : Logging {
     companion object X : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
+//            parseOcch2022()
+            parseOvsch2022_3()
+        }
+
+        private fun parseOvsch2022_3() {
+            val tournament = Tournament(
+                7700,
+                "XX Открытый всеобщий синхронный чемпионат. 3 этап (синхрон)",
+                "Дортмунд",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Дидбаридзе"),
+                Tour(2, "Разумов"),
+                Tour(3, "Шередега")
+            )
+
+            val fileName = "tournament-tours-7700-07-Nov-2022 (2).xlsx"
+            StandardXlsxParser.parseTournament(tournament, fileName)
+
+            logger.info(
+                """
+                        Tournament ${tournament.name} parsed from file $fileName.
+                        Total teams: ${tournament.totalTeams}
+                    """.trimIndent()
+            )
+        }
+
+        private fun parseOcch2022() {
             val tournament = Tournament(
                 6636,
                 "Открытый чемпионат Чехии по «Что? Где? Когда?»",
-                "Прага"
+                "Прага",
+                6
             )
 
             // tours metadata are not parsed from Excel
@@ -32,10 +65,12 @@ class Main : Logging {
             val fileName = XlsxParser.FILE_NAME
             XlsxParser.parseTournament(tournament, fileName)
 
-            logger.info("""
-                Tournament ${tournament.name} parsed from file $fileName.
-                Total teams: ${tournament.totalTeams}
-            """.trimIndent())
+            logger.info(
+                """
+                        Tournament ${tournament.name} parsed from file $fileName.
+                        Total teams: ${tournament.totalTeams}
+                    """.trimIndent()
+            )
 
             // aggregate operations
             // todo: we also need to sort by rating
