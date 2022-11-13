@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title>${tournament.name} - ${tournament.city} графики</title>
+    <title>${tournament.name} &mdash; ${tournament.city} &mdash; графики</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>

@@ -15,7 +15,7 @@ class Main : Logging {
     companion object X : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
-//            parseOcch2022()
+            parseOcch2022()
             parseOvsch2022_3()
             parseTriz2022_4()
         }
@@ -58,7 +58,7 @@ class Main : Logging {
                 "Вестфальский Мир"
             )
 
-            val htmlFilePath = "C:\\java\\chgk-graphs\\docs\\tournament-test.html"
+            val htmlFilePath = "C:\\java\\chgk-graphs\\docs\\ovsch-2022-3-dortmund.html"
 
             val template = TournamentTemplate()
             template.fillTemplateData(tournament, teamSums, visibleTeamNames)
@@ -68,7 +68,7 @@ class Main : Logging {
         private fun parseTriz2022_4() {
             val tournament = Tournament(
                 8589,
-                "I международный синхронный турнир \"TRIZ. 4 этап\" ",
+                "I международный синхронный турнир \"TRIZ. 4 этап\"",
                 "Дюссельдорф",
                 3
             )
@@ -143,13 +143,21 @@ class Main : Logging {
             // aggregate operations
             val filePath = "c:/java/ins-new/team-sums-ochh-2022.json"
 
-            writeAggregateOperationsResultsToFile(tournament, filePath)
+            val teamSums = writeAggregateOperationsResultsToFile(tournament, filePath)
 
-            /*
-                        if (false) {
-                            manualTest()
-                        }
-            */
+            val visibleTeamNames = listOf( // not all teams are visible
+                "В поисках мема",
+                "Котобусер Тор",
+                "Игрунки",
+                "Авось",
+                "Юнона"
+            )
+
+            val htmlFilePath = "C:\\java\\chgk-graphs\\docs\\ochh-2022.html"
+
+            val template = TournamentTemplate()
+            template.fillTemplateData(tournament, teamSums, visibleTeamNames)
+            template.export(htmlFilePath)
         }
 
         private fun writeAggregateOperationsResultsToFile(tournament: Tournament, filePath: String): List<TeamQuestionsSumDto> {
@@ -182,7 +190,7 @@ class Main : Logging {
             return sums
         }
 
-        private fun manualTest() {
+        private fun manualTest() { // todo: move this to the unit test or remove
             val tournament = Tournament(
                 6636,
                 "Открытый чемпионат Чехии по «Что? Где? Когда?»",
