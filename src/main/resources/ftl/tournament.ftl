@@ -17,6 +17,8 @@
     <a href="${tournament.linkInOldRating}" target="_blank"><img src="./img/old-rating-logo.png" width="30px;" height="30px;" alt="Турнир в старом рейтинге"/></a>
     &nbsp;
     <a href="${tournament.linkInNewRating}" target="_blank"><img src="./img/new-rating.ico" width="30px;" height="30px;" alt="Турнир в рейтинге МАИИ"/></a>
+    &nbsp;
+    <a href="./index.html">Наверх</a>
 </h1>
 
 <figure class="highcharts-figure">
