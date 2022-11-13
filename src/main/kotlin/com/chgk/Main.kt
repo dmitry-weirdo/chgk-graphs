@@ -3,6 +3,7 @@ package com.chgk
 import com.chgk.dto.TeamQuestionsSumDto
 import com.chgk.excel.StandardXlsxParser
 import com.chgk.excel.XlsxParser
+import com.chgk.freemarker.TournamentTemplate
 import com.chgk.model.Team
 import com.chgk.model.Tour
 import com.chgk.model.Tournament
@@ -16,6 +17,7 @@ class Main : Logging {
         fun main(args: Array<String>) {
 //            parseOcch2022()
             parseOvsch2022_3()
+            parseTriz2022_4()
         }
 
         private fun parseOvsch2022_3() {
@@ -33,7 +35,7 @@ class Main : Logging {
                 Tour(3, "Шередега")
             )
 
-            val fileName = "tournament-tours-7700-07-Nov-2022 (2).xlsx"
+            val fileName = "tournament-tours-7700-07-Nov-2022__2.xlsx"
             StandardXlsxParser.parseTournament(tournament, fileName)
 
             logger.info(
@@ -45,7 +47,69 @@ class Main : Logging {
 
             val filePath = "c:/java/ins-new/team-sums-ovsch-2022-3.json"
 
-            writeAggregateOperationsResultsToFile(tournament, filePath)
+            val teamSums = writeAggregateOperationsResultsToFile(tournament, filePath)
+
+            val visibleTeamNames = listOf(
+                "Эльфы",
+                "Сфинкс-party",
+                "Дижжон",
+                "Авось",
+                "Так получилось",
+                "Вестфальский Мир"
+            )
+
+            val htmlFilePath = "C:\\java\\chgk-graphs\\docs\\tournament-test.html"
+
+            val template = TournamentTemplate()
+            template.fillTemplateData(tournament, teamSums, visibleTeamNames)
+            template.export(htmlFilePath)
+        }
+
+        private fun parseTriz2022_4() {
+            val tournament = Tournament(
+                8589,
+                "I международный синхронный турнир \"TRIZ. 4 этап\" ",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Терентьев"),
+                Tour(2, "Коробейников"),
+                Tour(3, "Мерзляков")
+            )
+
+            val fileName = "tournament-tours-8589-11-Nov-2022.xlsx"
+            StandardXlsxParser.parseTournament(tournament, fileName)
+
+            logger.info(
+                """
+                        Tournament ${tournament.name} parsed from file $fileName.
+                        Total teams: ${tournament.totalTeams}
+                    """.trimIndent()
+            )
+
+            val filePath = "c:/java/ins-new/team-sums-triz-2022-4.json"
+
+            val teamSums = writeAggregateOperationsResultsToFile(tournament, filePath)
+
+            val visibleTeamNames = listOf(
+                "Сфинкс-party",
+                "И",
+                "Проти вiтру",
+                "Ты не один",
+                "Ясен Пень",
+                "Счастливое число",
+                "Авось",
+                "Так получилось"
+            )
+
+            val htmlFilePath = "C:\\java\\chgk-graphs\\docs\\triz-2022-4-duesseldorf.html"
+
+            val template = TournamentTemplate()
+            template.fillTemplateData(tournament, teamSums, visibleTeamNames)
+            template.export(htmlFilePath)
         }
 
         private fun parseOcch2022() {
@@ -88,7 +152,7 @@ class Main : Logging {
             */
         }
 
-        private fun writeAggregateOperationsResultsToFile(tournament: Tournament, filePath: String) {
+        private fun writeAggregateOperationsResultsToFile(tournament: Tournament, filePath: String): List<TeamQuestionsSumDto> {
             // todo: we also need to sort by rating
             val teamsByTotalCorrectAnswersDesc = tournament
                 .teams
@@ -114,6 +178,8 @@ class Main : Logging {
             }
 
             JacksonUtils.serializeToFile(filePath, sums, true)
+
+            return sums
         }
 
         private fun manualTest() {

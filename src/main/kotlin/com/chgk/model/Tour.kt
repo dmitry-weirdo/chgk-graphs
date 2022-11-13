@@ -10,8 +10,9 @@ package com.chgk.model
 data class Tour (
     val number: Int,
     val editor: String,
-    val questionsCount: Int = 12
+    val questionsCount: Int = 12,
+    val from: Int = (number - 1) * questionsCount + 1, // 1, 13, 25, ...
+    val to: Int = (number) * questionsCount // 12, 24, 36, ...
 
     // todo: add List<Question> if required
-) {
-}
+)
