@@ -4,13 +4,11 @@ import com.chgk.model.Team
 import com.chgk.model.TeamTourResults
 import com.chgk.model.Tournament
 import org.apache.logging.log4j.kotlin.Logging
-import org.apache.poi.ss.usermodel.CellType
-import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.ss.usermodel.Workbook
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.IOException
 
-object StandardXlsxParser : Logging {
+object StandardXlsxParser : ExcelParser, Logging {
 
     private const val TEAMS_SHEET_INDEX = 0
 
@@ -25,7 +23,7 @@ object StandardXlsxParser : Logging {
     private const val TEAM_CITY_COLUMN_HEADER = "Город"
     private const val TOUR_NUMBER_COLUMN_HEADER = "Тур"
 
-    fun parseTournament(tournament: Tournament, fileName: String) {
+    override fun parseTournament(tournament: Tournament, fileName: String) {
         val teams = parseTeamsSheet(fileName)
         // todo: validate teams (unique names, unique ids, unique numbers)
         tournament.addTeams(teams)
@@ -234,25 +232,5 @@ object StandardXlsxParser : Logging {
         }
 
         return teamsResults
-    }
-
-    private fun isNumeric(row: Row, cellNumber: Int): Boolean {
-        val cell = row.getCell(cellNumber) ?: return false
-
-        return (cell.cellType == CellType.NUMERIC)
-    }
-
-    private fun getStringSafe(row: Row, cellNumber: Int): String {
-        val cell = row.getCell(cellNumber)
-            ?: return ""
-
-        return cell.stringCellValue
-    }
-
-    private fun getIntSafe(row: Row, cellNumber: Int): Int? {
-        val cell = row.getCell(cellNumber)
-            ?: return null
-
-        return cell.numericCellValue.toInt()
     }
 }

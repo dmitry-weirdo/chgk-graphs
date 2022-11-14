@@ -4,12 +4,11 @@ import com.chgk.model.Team
 import com.chgk.model.TeamTourResults
 import com.chgk.model.Tournament
 import org.apache.logging.log4j.kotlin.Logging
-import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.ss.usermodel.Workbook
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.IOException
 
-object XlsxParser : Logging {
+object XlsxParser : ExcelParser, Logging {
 
     const val FILE_NAME = "Результаты Большой игры - 4ОЧЧ.xlsx"
 
@@ -21,7 +20,7 @@ object XlsxParser : Logging {
         parseWikiPagesDataSafe()
     }
 
-    fun parseTournament(tournament: Tournament, fileName: String) {
+    override fun parseTournament(tournament: Tournament, fileName: String) {
         val teams = parseTeamsSheet(fileName)
         // todo: validate teams (unique names, unique ids, unique numbers)
         tournament.addTeams(teams)
@@ -56,7 +55,6 @@ object XlsxParser : Logging {
         // todo: validate tour results (each team must have all results, each team must be present in the teams list)
     }
 
-//    fun parseWikiPagesDataSafe(): List<WikiPageData> {
     fun parseWikiPagesDataSafe() {
         try {
             val fileName = FILE_NAME
@@ -158,7 +156,7 @@ object XlsxParser : Logging {
 
             val teamTourQuestionsAnswered = mutableListOf<Boolean>();
 
-            for (questionNumber in 1 .. questionsInTour) {
+            for (questionNumber in 1..questionsInTour) {
                 val questionAnsweredInt = getIntSafe(row, columnNum++)
 
                 // todo: probably check 0 or 1 and fail or set null if no value is set.
@@ -187,18 +185,4 @@ object XlsxParser : Logging {
     }
 
     private fun getTourSheetName(tourNumber: Int) = "Тур $tourNumber"
-
-    private fun getStringSafe(row: Row, cellNumber: Int): String {
-        val cell = row.getCell(cellNumber)
-            ?: return ""
-
-        return cell.stringCellValue
-    }
-
-    private fun getIntSafe(row: Row, cellNumber: Int): Int? {
-        val cell = row.getCell(cellNumber)
-            ?: return null
-
-        return cell.numericCellValue.toInt()
-    }
 }

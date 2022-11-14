@@ -1,18 +1,21 @@
 package com.chgk
 
 import com.chgk.dto.TeamQuestionsSumDto
+import com.chgk.excel.ExcelParser
 import com.chgk.excel.StandardXlsxParser
 import com.chgk.excel.XlsxParser
 import com.chgk.freemarker.TournamentTemplate
 import com.chgk.model.Team
 import com.chgk.model.Tour
 import com.chgk.model.Tournament
-import com.chgk.util.JacksonUtils
 import org.apache.logging.log4j.kotlin.Logging
 
 class Main : Logging {
 
     companion object X : Logging {
+        // todo: take from the env variable
+        private const val HTML_FILES_PATH = "C:\\java\\chgk-graphs\\docs\\"
+
         @JvmStatic
         fun main(args: Array<String>) {
             parseOcch2022()
@@ -35,20 +38,6 @@ class Main : Logging {
                 Tour(3, "Шередега")
             )
 
-            val fileName = "tournament-tours-7700-07-Nov-2022__2.xlsx"
-            StandardXlsxParser.parseTournament(tournament, fileName)
-
-            logger.info(
-                """
-                        Tournament ${tournament.name} parsed from file $fileName.
-                        Total teams: ${tournament.totalTeams}
-                    """.trimIndent()
-            )
-
-            val filePath = "c:/java/ins-new/team-sums-ovsch-2022-3.json"
-
-            val teamSums = writeAggregateOperationsResultsToFile(tournament, filePath)
-
             val visibleTeamNames = listOf(
                 "Эльфы",
                 "Сфинкс-party",
@@ -58,11 +47,13 @@ class Main : Logging {
                 "Вестфальский Мир"
             )
 
-            val htmlFilePath = "C:\\java\\chgk-graphs\\docs\\ovsch-2022-3-dortmund.html"
-
-            val template = TournamentTemplate()
-            template.fillTemplateData(tournament, teamSums, visibleTeamNames)
-            template.export(htmlFilePath)
+            generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-7700-07-Nov-2022__2.xlsx",
+                "ovsch-2022-3-dortmund.html"
+            )
         }
 
         private fun parseTriz2022_4() {
@@ -80,20 +71,6 @@ class Main : Logging {
                 Tour(3, "Мерзляков")
             )
 
-            val fileName = "tournament-tours-8589-11-Nov-2022.xlsx"
-            StandardXlsxParser.parseTournament(tournament, fileName)
-
-            logger.info(
-                """
-                        Tournament ${tournament.name} parsed from file $fileName.
-                        Total teams: ${tournament.totalTeams}
-                    """.trimIndent()
-            )
-
-            val filePath = "c:/java/ins-new/team-sums-triz-2022-4.json"
-
-            val teamSums = writeAggregateOperationsResultsToFile(tournament, filePath)
-
             val visibleTeamNames = listOf(
                 "Сфинкс-party",
                 "И",
@@ -105,11 +82,13 @@ class Main : Logging {
                 "Так получилось"
             )
 
-            val htmlFilePath = "C:\\java\\chgk-graphs\\docs\\triz-2022-4-duesseldorf.html"
-
-            val template = TournamentTemplate()
-            template.fillTemplateData(tournament, teamSums, visibleTeamNames)
-            template.export(htmlFilePath)
+            generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8589-11-Nov-2022.xlsx",
+                "triz-2022-4-duesseldorf.html"
+            )
         }
 
         private fun parseOcch2022() {
@@ -130,21 +109,6 @@ class Main : Logging {
                 Tour(6, "Скиренко / Пономарёв"),
             )
 
-            val fileName = XlsxParser.FILE_NAME
-            XlsxParser.parseTournament(tournament, fileName)
-
-            logger.info(
-                """
-                        Tournament ${tournament.name} parsed from file $fileName.
-                        Total teams: ${tournament.totalTeams}
-                    """.trimIndent()
-            )
-
-            // aggregate operations
-            val filePath = "c:/java/ins-new/team-sums-ochh-2022.json"
-
-            val teamSums = writeAggregateOperationsResultsToFile(tournament, filePath)
-
             val visibleTeamNames = listOf( // not all teams are visible
                 "В поисках мема",
                 "Котобусер Тор",
@@ -153,14 +117,59 @@ class Main : Logging {
                 "Юнона"
             )
 
-            val htmlFilePath = "C:\\java\\chgk-graphs\\docs\\ochh-2022.html"
+            generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                XlsxParser,
+                "Результаты Большой игры - 4ОЧЧ.xlsx",
+                "ochh-2022.html"
+            )
+        }
+
+        private fun generateTournamentHtmlToStandardDirectory(
+            tournament: Tournament,
+            visibleTeamNames: List<String>,
+            excelParser: ExcelParser,
+            inputExcelFilePath: String,
+            htmlFilePath: String
+        ) {
+            generateTournamentHtml(
+                tournament,
+                visibleTeamNames,
+                excelParser,
+                inputExcelFilePath,
+                "$HTML_FILES_PATH$htmlFilePath"
+            )
+        }
+
+        private fun generateTournamentHtml(
+            tournament: Tournament,
+            visibleTeamNames: List<String>,
+            excelParser: ExcelParser,
+            inputExcelFilePath: String,
+            htmlFilePath: String
+        ) {
+            excelParser.parseTournament(tournament, inputExcelFilePath)
+            logger.info(
+                """
+                    Tournament \"${tournament.name}\" parsed from file \"$inputExcelFilePath\".
+                    Total teams: ${tournament.totalTeams}
+                """.trimIndent()
+            )
+
+            val teamSums = getTeamSums(tournament)
 
             val template = TournamentTemplate()
             template.fillTemplateData(tournament, teamSums, visibleTeamNames)
             template.export(htmlFilePath)
+            logger.info(
+                """
+                    Tournament \"${tournament.name}\" to file \"$htmlFilePath\".                 
+                """.trimIndent()
+            )
         }
 
-        private fun writeAggregateOperationsResultsToFile(tournament: Tournament, filePath: String): List<TeamQuestionsSumDto> {
+        private fun getTeamSums(tournament: Tournament): List<TeamQuestionsSumDto> {
             // todo: we also need to sort by rating
             val teamsByTotalCorrectAnswersDesc = tournament
                 .teams
@@ -185,7 +194,7 @@ class Main : Logging {
                 sums.add(sum)
             }
 
-            JacksonUtils.serializeToFile(filePath, sums, true)
+//            JacksonUtils.serializeToFile(filePath, sums, true)
 
             return sums
         }
