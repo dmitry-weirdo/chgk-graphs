@@ -1,15 +1,12 @@
 package com.chgk
 
-import com.chgk.dto.TeamQuestionsSumDto
 import com.chgk.excel.ExcelParser
 import com.chgk.excel.StandardXlsxParser
 import com.chgk.excel.XlsxParser
-import com.chgk.freemarker.TournamentTemplate
 import com.chgk.model.Team
 import com.chgk.model.Tour
 import com.chgk.model.Tournament
 import org.apache.logging.log4j.kotlin.Logging
-import java.io.File
 
 class Main : Logging {
 
@@ -19,12 +16,14 @@ class Main : Logging {
 
         @JvmStatic
         fun main(args: Array<String>) {
-            parseOcch2022()
-            parseOvsch2022_3()
-            parseTriz2022_4()
+            val generators = listOf(
+                parseOcch2022(),
+                parseOvsch2022_3(),
+                parseTriz2022_4(),
+            )
         }
 
-        private fun parseOvsch2022_3() {
+        private fun parseOvsch2022_3(): TournamentGenerator {
             val tournament = Tournament(
                 7700,
                 "XX Открытый всеобщий синхронный чемпионат. 3 этап (синхрон)",
@@ -48,7 +47,7 @@ class Main : Logging {
                 "Вестфальский Мир"
             )
 
-            generateTournamentHtmlToStandardDirectory(
+            return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
                 StandardXlsxParser,
@@ -57,7 +56,7 @@ class Main : Logging {
             )
         }
 
-        private fun parseTriz2022_4() {
+        private fun parseTriz2022_4(): TournamentGenerator {
             val tournament = Tournament(
                 8589,
                 "I международный синхронный турнир \"TRIZ. 4 этап\"",
@@ -83,7 +82,7 @@ class Main : Logging {
                 "Так получилось"
             )
 
-            generateTournamentHtmlToStandardDirectory(
+            return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
                 StandardXlsxParser,
@@ -92,7 +91,7 @@ class Main : Logging {
             )
         }
 
-        private fun parseOcch2022() {
+        private fun parseOcch2022(): TournamentGenerator {
             val tournament = Tournament(
                 6636,
                 "Открытый чемпионат Чехии по «Что? Где? Когда?»",
@@ -118,7 +117,7 @@ class Main : Logging {
                 "Юнона"
             )
 
-            generateTournamentHtmlToStandardDirectory(
+            return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
                 XlsxParser,
@@ -133,8 +132,8 @@ class Main : Logging {
             excelParser: ExcelParser,
             inputExcelFilePath: String,
             htmlFileName: String
-        ) {
-            generateTournamentHtml(
+        ): TournamentGenerator {
+            val generator = TournamentGenerator(
                 tournament,
                 visibleTeamNames,
                 excelParser,
@@ -142,66 +141,10 @@ class Main : Logging {
                 HTML_FILES_DIRECTORY,
                 htmlFileName
             )
-        }
 
-        private fun generateTournamentHtml(
-            tournament: Tournament,
-            visibleTeamNames: List<String>,
-            excelParser: ExcelParser,
-            inputExcelFilePath: String,
-            htmlFileDirectory: String,
-            htmlFileName: String
-        ) {
-            excelParser.parseTournament(tournament, inputExcelFilePath)
-            logger.info(
-                """
-                    Tournament "${tournament.name}" parsed from file "$inputExcelFilePath".
-                    Total teams: ${tournament.totalTeams}
-                """.trimIndent()
-            )
+            generator.generateHtml()
 
-            val teamSums = getTeamSums(tournament)
-
-            val htmlFilePath = "$htmlFileDirectory${File.separatorChar}$htmlFileName"
-
-            val template = TournamentTemplate()
-            template.fillTemplateData(tournament, teamSums, visibleTeamNames)
-            template.export(htmlFilePath)
-            logger.info(
-                """
-                    Tournament "${tournament.name}" - graphs generated to file "$htmlFilePath".                 
-                """.trimIndent()
-            )
-        }
-
-        private fun getTeamSums(tournament: Tournament): List<TeamQuestionsSumDto> {
-            // todo: we also need to sort by rating
-            val teamsByTotalCorrectAnswersDesc = tournament
-                .teams
-                .sortedByDescending { it.getTotalCorrectAnswers() }
-
-            logger.info("===========================================")
-            logger.info("Teams by total results:")
-            for ((index, team) in teamsByTotalCorrectAnswersDesc.withIndex()) {
-                logger.info("#${index + 1} || ${team.name} || ${team.getTourResultsInOneString()}")
-            }
-
-            // write JSON file for team sums after each question
-            val sums = mutableListOf<TeamQuestionsSumDto>()
-
-            for (team in teamsByTotalCorrectAnswersDesc) {
-                val teamSums = team.getSumSeries()
-                if (teamSums.size != tournament.totalQuestions) {
-                    throw IllegalStateException("Team number ${team.tournamentNumber} (\"${team.name}\") has ${teamSums.size} result sums while the tournament has ${tournament.totalQuestions} total questions")
-                }
-
-                val sum = TeamQuestionsSumDto(team.id, team.name, team.city, team.tournamentNumber, teamSums)
-                sums.add(sum)
-            }
-
-//            JacksonUtils.serializeToFile(filePath, sums, true)
-
-            return sums
+            return generator
         }
 
         private fun manualTest() { // todo: move this to the unit test or remove
