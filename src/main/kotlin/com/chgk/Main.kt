@@ -3,6 +3,7 @@ package com.chgk
 import com.chgk.excel.ExcelParser
 import com.chgk.excel.StandardXlsxParser
 import com.chgk.excel.XlsxParser
+import com.chgk.freemarker.IndexTemplate
 import com.chgk.model.Team
 import com.chgk.model.Tour
 import com.chgk.model.Tournament
@@ -13,14 +14,21 @@ class Main : Logging {
     companion object X : Logging {
         // todo: take from the env variable
         private const val HTML_FILES_DIRECTORY = "C:\\java\\chgk-graphs\\docs\\"
+        private const val INDEX_FILE_NAME = "index.html"
+        private const val INDEX_FILE_PATH = "$HTML_FILES_DIRECTORY$INDEX_FILE_NAME"
 
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
-                parseOcch2022(),
-                parseOvsch2022_3(),
                 parseTriz2022_4(),
+                parseOvsch2022_3(),
+                parseOcch2022(),
             )
+
+            val template = IndexTemplate()
+            template.fillTemplateData(generators)
+            template.export(INDEX_FILE_PATH)
+            logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
 
         private fun parseOvsch2022_3(): TournamentGenerator {

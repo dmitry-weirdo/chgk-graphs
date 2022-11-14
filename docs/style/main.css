@@ -27,3 +27,7 @@ h1 {
 a, a:visited {
     color: cornflowerblue;
 }
+
+li { /* see https://stackoverflow.com/a/19254449/8534088 */
+    margin: 10px 0;
+}
