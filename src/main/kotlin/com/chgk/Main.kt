@@ -9,12 +9,13 @@ import com.chgk.model.Team
 import com.chgk.model.Tour
 import com.chgk.model.Tournament
 import org.apache.logging.log4j.kotlin.Logging
+import java.io.File
 
 class Main : Logging {
 
     companion object X : Logging {
         // todo: take from the env variable
-        private const val HTML_FILES_PATH = "C:\\java\\chgk-graphs\\docs\\"
+        private const val HTML_FILES_DIRECTORY = "C:\\java\\chgk-graphs\\docs\\"
 
         @JvmStatic
         fun main(args: Array<String>) {
@@ -131,14 +132,15 @@ class Main : Logging {
             visibleTeamNames: List<String>,
             excelParser: ExcelParser,
             inputExcelFilePath: String,
-            htmlFilePath: String
+            htmlFileName: String
         ) {
             generateTournamentHtml(
                 tournament,
                 visibleTeamNames,
                 excelParser,
                 inputExcelFilePath,
-                "$HTML_FILES_PATH$htmlFilePath"
+                HTML_FILES_DIRECTORY,
+                htmlFileName
             )
         }
 
@@ -147,24 +149,27 @@ class Main : Logging {
             visibleTeamNames: List<String>,
             excelParser: ExcelParser,
             inputExcelFilePath: String,
-            htmlFilePath: String
+            htmlFileDirectory: String,
+            htmlFileName: String
         ) {
             excelParser.parseTournament(tournament, inputExcelFilePath)
             logger.info(
                 """
-                    Tournament \"${tournament.name}\" parsed from file \"$inputExcelFilePath\".
+                    Tournament "${tournament.name}" parsed from file "$inputExcelFilePath".
                     Total teams: ${tournament.totalTeams}
                 """.trimIndent()
             )
 
             val teamSums = getTeamSums(tournament)
 
+            val htmlFilePath = "$htmlFileDirectory${File.separatorChar}$htmlFileName"
+
             val template = TournamentTemplate()
             template.fillTemplateData(tournament, teamSums, visibleTeamNames)
             template.export(htmlFilePath)
             logger.info(
                 """
-                    Tournament \"${tournament.name}\" to file \"$htmlFilePath\".                 
+                    Tournament "${tournament.name}" - graphs generated to file "$htmlFilePath".                 
                 """.trimIndent()
             )
         }
