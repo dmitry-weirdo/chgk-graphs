@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Топ-1000 XIII (синхрон) &mdash; Дюссельдорф &mdash; графики</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <link rel="stylesheet" href="./style/main.css">
+</head>
+
+<body>
+<h1>
+    Топ-1000 XIII (синхрон) &mdash; Дюссельдорф
+    <a href="https://rating.chgk.info/tournament/8561" target="_blank"><img src="./img/old-rating-logo.png" width="30px;" height="30px;" alt="Турнир в старом рейтинге"/></a>
+    &nbsp;
+    <a href="https://rating.maii.li/b/tournament/8561/" target="_blank"><img src="./img/new-rating.ico" width="30px;" height="30px;" alt="Турнир в рейтинге МАИИ"/></a>
+    &nbsp;
+    <a href="./index.html">Наверх</a>
+</h1>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <!--
+        <p class="highcharts-description">
+            Сумма взятых вопросов после каждого вопроса.
+        </p>
+    -->
+</figure>
+
+<script>
+    const teamsData = [{"id":65108,"name":"Сфинкс-party","city":"Эссен","tournamentNumber":2,"totalCorrectAnswers":[1,2,2,2,3,4,4,5,6,7,7,8,9,9,9,9,10,10,11,11,12,13,14,14,15,16,16,17,18,18,18,18,18,19,20,21]},{"id":86781,"name":"Так получилось","city":"Дюссельдорф","tournamentNumber":1,"totalCorrectAnswers":[1,1,1,2,3,4,4,5,5,6,6,6,7,7,7,7,8,8,8,9,10,11,12,13,14,14,14,15,16,16,16,16,16,16,16,17]},{"id":68118,"name":"ЖмеR","city":"Дюссельдорф","tournamentNumber":4,"totalCorrectAnswers":[1,2,2,2,3,4,4,4,4,5,6,7,7,7,8,8,9,9,9,10,11,11,11,11,12,12,12,13,14,14,14,14,14,15,15,16]},{"id":74945,"name":"Ясен Пень","city":"Дюссельдорф","tournamentNumber":3,"totalCorrectAnswers":[1,2,3,4,4,5,5,5,5,5,5,6,6,6,7,7,7,7,7,8,9,9,9,9,10,10,10,11,11,11,11,11,11,11,11,12]},{"id":3146,"name":"Авось","city":"Дортмунд","tournamentNumber":5,"totalCorrectAnswers":[1,1,1,2,2,3,3,3,4,5,5,5,5,5,5,5,6,6,6,6,7,8,9,9,9,9,9,10,10,10,10,10,11,11,11,12]},{"id":-1,"name":"Один в поле","city":"Кёльн","tournamentNumber":6,"totalCorrectAnswers":[0,0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4]}];
+
+    const questionNumbers = [];
+    for (let i = 1; i <= 72; i++) {
+        questionNumbers.push(i)
+    }
+
+    const visibleTeamNames = ["Так получилось","Сфинкс-party","Ясен Пень","ЖмеR","Авось","Один в поле"];
+
+    const tours = [{"number":1,"editor":"Тур 1","questionsCount":12,"from":1,"to":12},{"number":2,"editor":"Тур 2","questionsCount":12,"from":13,"to":24},{"number":3,"editor":"Тур 3","questionsCount":12,"from":25,"to":36}];
+
+    const series = [];
+    teamsData.forEach(function(item) {
+        series.push({
+            name: item.name,
+            data: item.totalCorrectAnswers,
+            visible: visibleTeamNames.includes(item.name) // hide most of the teams by default to be not super-slow
+        });
+    });
+
+    let plotBands = [];
+    tours.forEach(function(tour, index) {
+        let color = (index % 2 === 0) ? 'rgba(200, 200, 200, 0.1)' : 'rgba(68, 170, 213, 0.1)';
+
+        plotBands.push({
+            from: tour.from - 1.5,
+            to: tour.to - 0.5,
+            color: color,
+            label: {
+                text: tour.editor,
+                style: {
+                    color: '#606060'
+                }
+            }
+        })
+    });
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Сумма взятых вопросов'
+        },
+        /*
+                subtitle: {
+                    text: 'Source: ' +
+                        '<a href="https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature" ' +
+                        'target="_blank">Wikipedia.com</a>'
+                },
+        */
+        xAxis: {
+            categories: questionNumbers,
+            plotBands: plotBands
+        },
+        yAxis: {
+            title: {
+                text: 'Взято вопросов'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: false
+                },
+                enableMouseTracking: true
+            }
+        },
+        series: series
+    });
+</script>
+
+</body>
+</html>

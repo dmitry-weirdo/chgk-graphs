@@ -84,7 +84,7 @@ object StandardXlsxParser : ExcelParser, Logging {
             if (!isNumeric(row, TEAM_ID_COLUMN_INDEX)) {
                 val teamIdColumnValue = getStringSafe(row, TEAM_ID_COLUMN_INDEX)
                 if (teamIdColumnValue.isBlank()) {
-                    logger.info("Row $rowNum is empty. Skip this row.")
+                    logger.info("Row $rowNum is empty (no team id present). Skip this row.")
                     continue
                 }
 
@@ -160,7 +160,7 @@ object StandardXlsxParser : ExcelParser, Logging {
             if (!isNumeric(row, TEAM_ID_COLUMN_INDEX)) {
                 val teamIdColumnValue = getStringSafe(row, TEAM_ID_COLUMN_INDEX)
                 if (teamIdColumnValue.isBlank()) {
-                    logger.info("Row $rowNum is empty. Skip this row.")
+                    logger.info("Row $rowNum is empty (no team id present). Skip this row.")
                     continue
                 }
 
