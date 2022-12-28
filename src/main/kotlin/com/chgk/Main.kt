@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parseEasySmolensk20(),
                 parseEkvestria4(),
                 parseTop1000_2022(),
                 parseTriz2022_4(),
@@ -31,6 +32,42 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parseEasySmolensk20(): TournamentGenerator {
+            val tournament = Tournament(
+                8669,
+                "Международный синхронный турнир \"Лёгкий Смоленск - 20\"",
+                "Дюссельдорф",
+                3,
+                questionsPerTour = 13
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Тур 1", 13),
+                Tour(2, "Тур 2", 13),
+                Tour(3, "Тур 3", 13)
+            )
+
+            val visibleTeamNames = listOf(
+                "И",
+                "Так получилось",
+                "ЖмеR",
+                "Сфинкс-party",
+                "Ясен Пень",
+                "ИК Ковчег",
+                "Авось",
+                "Счастливое число",
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8669-28-Dec-2022.xlsx",
+                "easy-smolensk-20-duesseldorf.html"
+            )
         }
 
         private fun parseEkvestria4(): TournamentGenerator {
