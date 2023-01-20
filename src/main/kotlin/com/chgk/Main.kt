@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parseSecondRaven(),
                 parseOlivierCup_2023(),
                 parseNevMoGoTu_2022(),
                 parseEasySmolensk20(),
@@ -34,6 +35,40 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parseSecondRaven(): TournamentGenerator {
+            val tournament = Tournament(
+                8835,
+                "Второй Ворон - синхрон",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Алиев"),
+                Tour(2, "Шибанов"),
+                Tour(3, "Саксонов")
+            )
+
+            val visibleTeamNames = listOf(
+                "Так получилось",
+                "И",
+                "Ясен Пень",
+                "Трое в лодке",
+                "Авось",
+                "ЖмеR",
+                "Сфинкс-party"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8835-20-Jan-2023.xlsx",
+                "second-raven-2023-duesseldorf.html"
+            )
         }
 
         private fun parseOlivierCup_2023(): TournamentGenerator {
