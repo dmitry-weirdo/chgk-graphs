@@ -20,6 +20,8 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parseSimpleDecoration_2023(),
+                parseEasySmolensk5_2023(),
                 parseSecondRaven(),
                 parseOlivierCup_2023(),
                 parseNevMoGoTu_2022(),
@@ -35,6 +37,67 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parseSimpleDecoration_2023(): TournamentGenerator {
+            val tournament = Tournament(
+                8802,
+                "Международный синхронный турнир \"Простое украшенье\" 2023",
+                "Дортмунд",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Тур 1"),
+                Tour(2, "Тур 2"),
+                Tour(3, "Тур 3")
+            )
+
+            val visibleTeamNames = listOf(
+                "Раздолье",
+                "Авось",
+                "Эльфы-Лайт"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8802-25-Jan-2023.xlsx",
+                "simple-decoration-2023-dortmund.html"
+            )
+        }
+
+        private fun parseEasySmolensk5_2023(): TournamentGenerator {
+            val tournament = Tournament(
+                8803,
+                "Международный синхронный турнир \"Простой Смоленск - 5\"",
+                "Дортмунд",
+                3,
+                questionsPerTour = 13
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Тур 1", 13),
+                Tour(2, "Тур 2", 13),
+                Tour(3, "Тур 3", 13)
+            )
+
+            val visibleTeamNames = listOf(
+                "Раздолье",
+                "Авось",
+                "Эльфы"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8803-25-Jan-2023__1.xlsx",
+                "easy-smolensk-5-2023-dortmund.html"
+            )
         }
 
         private fun parseSecondRaven(): TournamentGenerator {
