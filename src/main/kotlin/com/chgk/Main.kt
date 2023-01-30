@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_SPV_winter_2023(),
                 parseSimpleDecoration_2023(),
                 parseEasySmolensk5_2023(),
                 parseSecondRaven(),
@@ -37,6 +38,37 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parse_SPV_winter_2023(): TournamentGenerator {
+            val tournament = Tournament(
+                8734,
+                "Синхрон простых вопросов. Зима – 2023",
+                "Дортмунд",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Шорин"),
+                Tour(2, "Волков"),
+                Tour(3, "Мерзляков")
+            )
+
+            val visibleTeamNames = listOf(
+                "Легион",
+                "Раздолье",
+                "Авось",
+                "Эльфы"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8734-30-Jan-2023_ре.xlsx",
+                "spv-winter-2023-dortmund.html"
+            )
         }
 
         private fun parseSimpleDecoration_2023(): TournamentGenerator {
