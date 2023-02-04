@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_besk_zemli_35(),
                 parse_slavjanka_bez_razdatok_5_stage_1_2023(),
                 parse_SPV_winter_2023(),
                 parseSimpleDecoration_2023(),
@@ -40,6 +41,38 @@ class Main : Logging {
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
+
+        private fun parse_besk_zemli_35(): TournamentGenerator {
+            val tournament = Tournament(
+                8793,
+                "Бесконечные Земли. Том XXXV (синхрон)",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Полевой / Рыбачук"),
+                Tour(2, "Ермишкин"),
+                Tour(3, "Саксонов")
+            )
+
+            val visibleTeamNames = listOf(
+                "И",
+                "Жмеринка",
+                "Авось",
+                "ИК Ковчег"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8793-04-Feb-2023-wc.xlsx",
+                "besk-zemli-35.html"
+            )
+        }
+
 
         private fun parse_slavjanka_bez_razdatok_5_stage_1_2023(): TournamentGenerator {
             val tournament = Tournament(
