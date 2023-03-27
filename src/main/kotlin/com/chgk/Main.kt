@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parseTriz_2023_1(),
                 parsePremierMarchYdes(),
                 parseEkvestria7(),
                 parseEkvestria6(),
@@ -44,6 +45,39 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parseTriz_2023_1(): TournamentGenerator {
+            val tournament = Tournament(
+                9013,
+                "II международный синхронный турнир \"TRIZ. 1 этап\"",
+                "Дортмунд",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Колмаков"),
+                Tour(2, "Ершов"),
+                Tour(3, "Солахян")
+            )
+
+            val visibleTeamNames = listOf(
+                "Филин Dank",
+                "А если найдем?",
+                "ЖмеR",
+                "Раздолье",
+                "Авось",
+                "Эльфы"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-9013-27-Mar-2023__2.xlsx",
+                "triz-2023-1-dortmund.html"
+            )
         }
 
         private fun parsePremierMarchYdes(): TournamentGenerator {
