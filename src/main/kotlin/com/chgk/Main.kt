@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_cube_8(),
                 parse_12_graney_1(),
                 parseTriz_2023_1(),
                 parsePremierMarchYdes(),
@@ -46,6 +47,37 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parse_cube_8(): TournamentGenerator {
+            val tournament = Tournament(
+                8425,
+                "III сезон синхронного турнира «Куб». Этап 8. Апрель",
+                "Дортмунд",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Тур 1"),
+                Tour(2, "Тур 2"),
+                Tour(3, "Тур 3")
+            )
+
+            val visibleTeamNames = listOf(
+                "Раздолье",
+                "Сфинкс-party",
+                "Эльфы",
+                "Филин Dank"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8425-06-Apr-2023__1.xlsx",
+                "cube-8-dortmund.html"
+            )
         }
 
         private fun parse_12_graney_1(): TournamentGenerator {
