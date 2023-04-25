@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_premier_cup_of_light_horses_2023(),
                 parse_cube_8(),
                 parse_12_graney_1(),
                 parseTriz_2023_1(),
@@ -47,6 +48,37 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parse_premier_cup_of_light_horses_2023(): TournamentGenerator {
+            val tournament = Tournament(
+                9014,
+                "Серия Premier. Кубок светлых лошадок – 2023",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Тур 1"),
+                Tour(2, "Тур 2"),
+                Tour(3, "Тур 3")
+            )
+
+            val visibleTeamNames = listOf(
+                "Пол Пня",
+                "ЖмеR",
+                "Друзи",
+                "Сборная легионеров"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-9014-16-Apr-2023.xlsx",
+                "premier-cup-of-light-horses-2023-duesseldorf.html"
+            )
         }
 
         private fun parse_cube_8(): TournamentGenerator {
