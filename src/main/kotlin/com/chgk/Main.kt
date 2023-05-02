@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parseEkvestria8(),
                 parse_lm_orange_light(),
                 parse_premier_cup_of_light_horses_2023(),
                 parse_cube_8(),
@@ -50,6 +51,41 @@ class Main : Logging {
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
+
+        private fun parseEkvestria8(): TournamentGenerator {
+            val tournament = Tournament(
+                9033,
+                "Кубок Эквестрии – 8: Sprinkle Medley",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Алиев"),
+                Tour(2, "Евтушков"),
+                Tour(3, "Полевой / Рыбачук")
+            )
+
+            val visibleTeamNames = listOf(
+                "Ясен Пень",
+                "Проти вiтру",
+                "Счастливое число",
+                "Авось",
+                "И",
+                "Сфинкс-party",
+                "ЖмеR",
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-9033-01-May-2023.xlsx",
+                "ekvestria-8-duesseldorf.html"
+            )
+        }
+
 
         private fun parse_lm_orange_light(): TournamentGenerator {
             val tournament = Tournament(
