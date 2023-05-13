@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_SPV_spring_2023(),
                 parseEkvestria8(),
                 parse_lm_orange_light(),
                 parse_premier_cup_of_light_horses_2023(),
@@ -51,6 +52,41 @@ class Main : Logging {
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
+
+        private fun parse_SPV_spring_2023(): TournamentGenerator {
+            val tournament = Tournament(
+                9018,
+                "Синхрон простых вопросов. Весна – 2023",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Шорин"),
+                Tour(2, "Богатов"),
+                Tour(3, "Мерзляков")
+            )
+
+            val visibleTeamNames = listOf(
+                "Ясен Пень",
+                "И",
+                "Авось",
+                "Бездашенные",
+                "Сфинкс-party",
+                "Счастливое число",
+                "ЖмеR"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-9018-13-May-2023.xlsx",
+                "spv-spring-2023-duesseldorf.html"
+            )
+        }
+
 
         private fun parseEkvestria8(): TournamentGenerator {
             val tournament = Tournament(
