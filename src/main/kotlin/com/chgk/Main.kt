@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_hypercube_3(),
                 parse_ostrovok_besk_may_2023(),
                 parse_SPV_spring_2023(),
                 parseEkvestria8(),
@@ -52,6 +53,44 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parse_hypercube_3(): TournamentGenerator {
+            val tournament = Tournament(
+                8917,
+                "III сезон синхронного турнира «Куб». Финал (Гиперкуб)",
+                "Дюссельдорф",
+                3,
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Брюханов", 6),
+                Tour(2, "Кунилов / Парр", 6),
+                Tour(3, "Пономарёв / Столяров", 6),
+                Tour(4, "Иванов / Сахаров", 6),
+                Tour(5, "Хаиткулов / Сахаров", 6),
+                Tour(6, "Коврижных", 6),
+            )
+
+            val visibleTeamNames = listOf(
+                "Ясен Пень",
+                "Счастливое число",
+                "Проти вiтру",
+                "Авось",
+                "И",
+                "ЖмеR",
+                "Сфинкс-party",
+                "Сборная качалки"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-8917-28-May-2023.xlsx",
+                "hypercube-3.html",
+            )
         }
 
         private fun parse_ostrovok_besk_may_2023(): TournamentGenerator {
