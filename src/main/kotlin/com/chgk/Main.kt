@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parseEkvestria9(),
                 parse_hypercube_3(),
                 parse_ostrovok_besk_may_2023(),
                 parse_SPV_spring_2023(),
@@ -53,6 +54,36 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parseEkvestria9(): TournamentGenerator {
+            val tournament = Tournament(
+                9196,
+                "Кубок Эквестрии — 9: Raise the Sun",
+                "Дортмунд",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Алиев"),
+                Tour(2, "Мерзляков"),
+                Tour(3, "Колесов")
+            )
+
+            val visibleTeamNames = listOf(
+                "Грудка Ктулху",
+                "Авидас расслабонис",
+                "Эйфория"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-9196-31-May-2023.xlsx",
+                "ekvestria-9-dortmund.html"
+            )
         }
 
         private fun parse_hypercube_3(): TournamentGenerator {
