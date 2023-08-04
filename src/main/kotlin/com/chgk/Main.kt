@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_ultima_tule_2023(),
                 parse_premier_sunny_days_2023(),
                 parseEkvestria9(),
                 parse_hypercube_3(),
@@ -56,6 +57,40 @@ class Main : Logging {
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
+
+        private fun parse_ultima_tule_2023(): TournamentGenerator {
+            val tournament = Tournament(
+                9487,
+                "Зеркало Ultima Tule",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Шибанов"),
+                Tour(2, "Мерзляков"),
+                Tour(3, "Коробейников")
+            )
+
+            val visibleTeamNames = listOf(
+                "Ясень Пень",
+                "ЖмеR",
+                "Проти вiтру",
+                "Авось",
+                "И",
+                "Сфинкс-party"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament_tours_9487_16_Jul_2023_Ултима_Туле_1_Испр.xlsx",
+                "ultima-tule-2023-duesseldorf.html"
+            )
+        }
+
 
         private fun parse_premier_sunny_days_2023(): TournamentGenerator {
             val tournament = Tournament(
