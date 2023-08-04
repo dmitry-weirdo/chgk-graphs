@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_premier_sunny_days_2023(),
                 parseEkvestria9(),
                 parse_hypercube_3(),
                 parse_ostrovok_besk_may_2023(),
@@ -55,6 +56,42 @@ class Main : Logging {
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
+
+        private fun parse_premier_sunny_days_2023(): TournamentGenerator {
+            val tournament = Tournament(
+                9398,
+                "Серия Premier. Солнечные дни – 2023",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Тур 1"),
+                Tour(2, "Тур 2"),
+                Tour(3, "Тур 3")
+            )
+
+            val visibleTeamNames = listOf(
+                "Ясень Пень",
+                "И",
+                "Раздолье",
+                "Берлина кого-то привела",
+                "Рациональное число",
+                "Счастливое число",
+                "Авось",
+                "ЖмеR"
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament_tours_9398_30_Jun_2023_1_Серия_Premier_измен.xlsx",
+                "premier-sunny-days-2023-duesseldorf.html"
+            )
+        }
+
 
         private fun parseEkvestria9(): TournamentGenerator {
             val tournament = Tournament(
