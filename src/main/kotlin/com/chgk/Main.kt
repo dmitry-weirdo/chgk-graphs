@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parseSimpleDecoration_2023_summer(),
                 parse_ultima_tule_2023(),
                 parse_premier_sunny_days_2023(),
                 parseEkvestria9(),
@@ -57,6 +58,44 @@ class Main : Logging {
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
+
+        private fun parseSimpleDecoration_2023_summer(): TournamentGenerator {
+            val tournament = Tournament(
+                9501,
+                "Международный синхронный турнир \"Простое украшенье\" 2023. Лето.",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Тур 1"),
+                Tour(2, "Тур 2"),
+                Tour(3, "Тур 3")
+            )
+
+            val visibleTeamNames = listOf(
+                "Ясен пень",
+                "Счастливое число",
+                "Арвидас Расслабонис",
+                "И",
+                "Раздолье",
+                "ЖмеR",
+                "Авось",
+                "Сфинкс-party",
+                "Не читал, но обсуждаю",
+                "Великолепная пятёрка",
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament_tours_9501_29_Jul_2023_Прост_Украаш_1.xlsx",
+                "simple-decoration-2023-summer-duesseldorf.html"
+            )
+        }
+
 
         private fun parse_ultima_tule_2023(): TournamentGenerator {
             val tournament = Tournament(
