@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_bojko_okjob(),
                 parseSimpleDecoration_2023_summer(),
                 parse_ultima_tule_2023(),
                 parse_premier_sunny_days_2023(),
@@ -58,6 +59,45 @@ class Main : Logging {
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
+
+        private fun parse_bojko_okjob(): TournamentGenerator {
+            val tournament = Tournament(
+                9612,
+                "Легкий и бодренький международный фестиваль загадок",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Тур 1"),
+                Tour(2, "Тур 2"),
+                Tour(3, "Тур 3")
+            )
+
+            val visibleTeamNames = listOf(
+                "И",
+                "Не читал, но обсуждаю",
+                "Сфинкс-party",
+                "Проти вiтру",
+                "Так получилось",
+                "Ясен Пень",
+                "Авось",
+                "Счастливое число Грэма",
+                "ЖмеR",
+                "Счастливое число",
+                "Сборная легионеров",
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-9612-14-Aug-2023__BOJKOJOB__1.xlsx",
+                "bojko-okjob-duesseldorf.html"
+            )
+        }
+
 
         private fun parseSimpleDecoration_2023_summer(): TournamentGenerator {
             val tournament = Tournament(
