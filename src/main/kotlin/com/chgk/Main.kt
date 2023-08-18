@@ -75,7 +75,7 @@ class Main : Logging {
             )
 
             val visibleTeamNames = listOf(
-                "Ясен пень",
+                "Ясен Пень",
                 "Счастливое число",
                 "Арвидас Расслабонис",
                 "И",
