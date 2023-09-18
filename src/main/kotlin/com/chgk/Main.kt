@@ -61,7 +61,7 @@ class Main : Logging {
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
-                parseOcch2022(),
+                generateTournamentHtmlToStandardDirectory(configs[index++])
             )
 
             val template = IndexTemplate()
@@ -70,48 +70,13 @@ class Main : Logging {
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
 
-        private fun parseOcch2022(): TournamentGenerator {
-            val tournament = Tournament(
-                6636,
-                "Открытый чемпионат Чехии по «Что? Где? Когда?»",
-                "Прага",
-                6
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Гельфанд"),
-                Tour(2, "Мерзляков"),
-                Tour(3, "Лунёва"),
-                Tour(4, "Гельфанд"),
-                Tour(5, "Мерзляков"),
-                Tour(6, "Скиренко / Пономарёв"),
-            )
-
-            val visibleTeamNames = listOf( // not all teams are visible
-                "В поисках мема",
-                "Котобусер Тор",
-                "Игрунки",
-                "Авось",
-                "Юнона"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "Результаты Большой игры - 4ОЧЧ.xlsx",
-                "ochh-2022.html",
-                XlsxParser
-            )
-        }
-
         private fun generateTournamentHtmlToStandardDirectory(tournamentConfig: TournamentConfig) =
             generateTournamentHtmlToStandardDirectory(
                 tournamentConfig.tournament,
                 tournamentConfig.generatorConfig.visibleTeamNames,
                 tournamentConfig.generatorConfig.inputExcelFilePath,
                 tournamentConfig.generatorConfig.htmlFileName,
-                tournamentConfig.generatorConfig.excelParser
+                tournamentConfig.generatorConfig.parser
             )
 
         private fun generateTournamentHtmlToStandardDirectory(

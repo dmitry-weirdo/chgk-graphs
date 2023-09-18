@@ -1183,6 +1183,54 @@
         "inputExcelFilePath": "tournament-tours-7700-07-Nov-2022__2.xlsx",
         "htmlFileName": "ovsch-2022-3-dortmund.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 6636,
+        "name": "Открытый чемпионат Чехии по «Что? Где? Когда?»",
+        "city": "Прага",
+        "toursCount": 6,
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Гельфанд"
+          },
+          {
+            "number": 2,
+            "editor": "Мерзляков"
+          },
+          {
+            "number": 3,
+            "editor": "Лунёва"
+          },
+          {
+            "number": 4,
+            "editor": "Гельфанд"
+          },
+          {
+            "number": 5,
+            "editor": "Мерзляков"
+          },
+          {
+            "number": 6,
+            "editor": "Скиренко / Пономарёв"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [ // not all teams are visible
+          "В поисках мема",
+          "Котобусер Тор",
+          "Игрунки",
+          "Авось",
+          "Юнона"
+        ],
+
+        "inputExcelFilePath": "Результаты Большой игры - 4ОЧЧ.xlsx",
+        "htmlFileName": "ochh-2022.html",
+        "excelParser": "XlsxParser"
+      }
     }
   ]
 }
