@@ -67,15 +67,8 @@ class Main : Logging {
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
 
-        private fun parse_besk_cup_2023_1(tournamentConfig: TournamentConfig): TournamentGenerator {
-            return generateTournamentHtmlToStandardDirectory(
-                tournamentConfig.tournament,
-                tournamentConfig.generatorConfig.visibleTeamNames,
-                tournamentConfig.generatorConfig.inputExcelFilePath,
-                tournamentConfig.generatorConfig.htmlFileName,
-                tournamentConfig.generatorConfig.excelParser
-            )
-        }
+        private fun parse_besk_cup_2023_1(tournamentConfig: TournamentConfig) =
+            generateTournamentHtmlToStandardDirectory(tournamentConfig)
 
         private fun parse_avgustiner_2023(): TournamentGenerator {
             val tournament = Tournament(
@@ -1112,6 +1105,15 @@ class Main : Logging {
                 XlsxParser
             )
         }
+
+        private fun generateTournamentHtmlToStandardDirectory(tournamentConfig: TournamentConfig) =
+            generateTournamentHtmlToStandardDirectory(
+                tournamentConfig.tournament,
+                tournamentConfig.generatorConfig.visibleTeamNames,
+                tournamentConfig.generatorConfig.inputExcelFilePath,
+                tournamentConfig.generatorConfig.htmlFileName,
+                tournamentConfig.generatorConfig.excelParser
+            )
 
         private fun generateTournamentHtmlToStandardDirectory(
             tournament: Tournament,
