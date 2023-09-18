@@ -792,6 +792,107 @@
         "inputExcelFilePath": "tournament-tours-8871-30-Jan-2023.xlsx",
         "htmlFileName": "sbr-5-stage-1-2023.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 8734,
+        "name": "Синхрон простых вопросов. Зима – 2023",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Шорин"
+          },
+          {
+            "number": 2,
+            "editor": "Волков"
+          },
+          {
+            "number": 3,
+            "editor": "Мерзляков"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Легион",
+          "Раздолье",
+          "Авось",
+          "Эльфы"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8734-30-Jan-2023_ре.xlsx",
+        "htmlFileName": "spv-winter-2023-dortmund.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8802,
+        "name": "Международный синхронный турнир \"Простое украшенье\" 2023",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Раздолье",
+          "Авось",
+          "Эльфы-Лайт"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8802-25-Jan-2023.xlsx",
+        "htmlFileName": "simple-decoration-2023-dortmund.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8803,
+        "name": "Международный синхронный турнир \"Простой Смоленск - 5\"",
+        "city": "Дортмунд",
+        "questionsPerTour": 13,
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1",
+            "questionsCount": 13
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2",
+            "questionsCount": 13
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3",
+            "questionsCount": 13
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Раздолье",
+          "Авось",
+          "Эльфы"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8803-25-Jan-2023__1.xlsx",
+        "htmlFileName": "easy-smolensk-5-2023-dortmund.html"
+      }
     }
   ]
 }
