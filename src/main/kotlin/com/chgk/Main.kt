@@ -22,11 +22,12 @@ class Main : Logging {
 
         @JvmStatic
         fun main(args: Array<String>) {
-            val configs = JacksonUtils.parseConfigs(CONFIGS_FILE_PATH)
+            val configsList = JacksonUtils.parseConfigs(CONFIGS_FILE_PATH)
+            val configs = configsList.configs
 
             val generators = listOf(
-                parse_besk_cup_2023_1(configs.configs[0]),
-                parse_avgustiner_2023(),
+                parse_besk_cup_2023_1(configs[0]),
+                parse_avgustiner_2023(configs[1]),
                 parse_bojko_okjob(),
                 parseSimpleDecoration_2023_summer(),
                 parse_ultima_tule_2023(),
@@ -70,35 +71,8 @@ class Main : Logging {
         private fun parse_besk_cup_2023_1(tournamentConfig: TournamentConfig) =
             generateTournamentHtmlToStandardDirectory(tournamentConfig)
 
-        private fun parse_avgustiner_2023(): TournamentGenerator {
-            val tournament = Tournament(
-                9374,
-                "Международный синхронный турнир \"Блаженный Августинер 2023\"",
-                "Дортмунд"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Мерзляков"),
-                Tour(2, "Талисайнен"),
-                Tour(3, "Мозуль")
-            )
-
-            val visibleTeamNames = listOf(
-                "Сфинкс-party",
-                "Раздолье",
-                "Авось",
-                "Эльфы"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament_tours_9374_21_Aug_2023_Блаж_Августинер_2023.xlsx",
-                "avgustiner-dortmund.html"
-            )
-        }
-
+        private fun parse_avgustiner_2023(tournamentConfig: TournamentConfig) =
+            generateTournamentHtmlToStandardDirectory(tournamentConfig)
 
         private fun parse_bojko_okjob(): TournamentGenerator {
             val tournament = Tournament(

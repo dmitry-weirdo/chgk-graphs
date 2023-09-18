@@ -39,6 +39,39 @@
         "inputExcelFilePath": "tournament-tours-9416-15-Sep-2023.xlsx",
         "htmlFileName": "besk-cup-2023-1-duesseldorf.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 9374,
+        "name": "Международный синхронный турнир \"Блаженный Августинер 2023\"",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Мерзляков"
+          },
+          {
+            "number": 2,
+            "editor": "Талисайнен"
+          },
+          {
+            "number": 3,
+            "editor": "Мозуль"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Сфинкс-party",
+          "Раздолье",
+          "Авось",
+          "Эльфы"
+        ],
+
+        "inputExcelFilePath": "tournament_tours_9374_21_Aug_2023_Блаж_Августинер_2023.xlsx",
+        "htmlFileName": "avgustiner-dortmund.html"
+      }
     }
   ]
 }
