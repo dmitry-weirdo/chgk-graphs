@@ -27,7 +27,7 @@
 
         <poi.version>5.2.2</poi.version>
         <commons-lang.version>3.12.0</commons-lang.version>
-        <jackson.version>2.13.2</jackson.version>
+        <jackson.version>2.15.2</jackson.version>
 
         <freemarker.version>2.3.31</freemarker.version>
 
@@ -122,6 +122,14 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- Properly serialize and deserialize Kotlin data classes -->
+        <!-- see https://github.com/FasterXML/jackson-module-kotlin -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-kotlin</artifactId>
             <version>${jackson.version}</version>
         </dependency>
 

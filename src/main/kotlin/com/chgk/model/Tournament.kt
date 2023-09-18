@@ -9,7 +9,7 @@ package com.chgk.model
  * @property toursCount количество туров
  * @property questionsPerTour количество вопросов в туре
  */
-data class Tournament (
+data class Tournament(
     val id: Int,
     val name: String,
     val city: String, // todo: probably make city a separate class /  enum
@@ -21,10 +21,10 @@ data class Tournament (
     val tours: MutableList<Tour> = mutableListOf()
 ) {
     val linkInOldRating: String
-        get() = "https://rating.chgk.info/tournament/${id}"
+        get() = "https://rating.chgk.info/tournament/$id"
 
     val linkInNewRating: String
-        get() = "https://rating.maii.li/b/tournament/${id}/"
+        get() = "https://rating.maii.li/b/tournament/$id/"
 
     val totalQuestions: Int
         get() = toursCount * questionsPerTour

@@ -1,5 +1,6 @@
 package com.chgk
 
+import com.chgk.config.TournamentConfig
 import com.chgk.excel.ExcelParser
 import com.chgk.excel.StandardXlsxParser
 import com.chgk.excel.XlsxParser
@@ -7,6 +8,7 @@ import com.chgk.freemarker.IndexTemplate
 import com.chgk.model.Team
 import com.chgk.model.Tour
 import com.chgk.model.Tournament
+import com.chgk.util.JacksonUtils
 import org.apache.logging.log4j.kotlin.Logging
 
 class Main : Logging {
@@ -16,11 +18,14 @@ class Main : Logging {
         private const val HTML_FILES_DIRECTORY = "C:\\java\\chgk-graphs\\docs\\"
         private const val INDEX_FILE_NAME = "index.html"
         private const val INDEX_FILE_PATH = "$HTML_FILES_DIRECTORY$INDEX_FILE_NAME"
+        private const val CONFIGS_FILE_PATH = "C:\\java\\chgk-graphs\\src\\main\\resources\\json\\tournaments.json"
 
         @JvmStatic
         fun main(args: Array<String>) {
+            val configs = JacksonUtils.parseConfigs(CONFIGS_FILE_PATH)
+
             val generators = listOf(
-                parse_besk_cup_2023_1(),
+                parse_besk_cup_2023_1(configs.configs[0]),
                 parse_avgustiner_2023(),
                 parse_bojko_okjob(),
                 parseSimpleDecoration_2023_summer(),
@@ -62,38 +67,13 @@ class Main : Logging {
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
 
-        private fun parse_besk_cup_2023_1(): TournamentGenerator {
-            val tournament = Tournament(
-                9416,
-                "Кубок Бесконечности: первый этап. Камень Реальности (синхрон)",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Полевой / Рыбачук"),
-                Tour(2, "Полевой / Рыбачук / Скиренко / Мереминский"),
-                Tour(3, "Скиренко / Мереминский")
-            )
-
-            val visibleTeamNames = listOf(
-                "Ясен Пень",
-                "И",
-                "Проти вiтру",
-                "Без понятия",
-                "Авось",
-                "Счастливое число",
-                "Черемушки",
-                "Сфинкс-party",
-                "Не читал, но обсуждаю",
-                "ЖмеR",
-            )
-
+        private fun parse_besk_cup_2023_1(tournamentConfig: TournamentConfig): TournamentGenerator {
             return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-9416-15-Sep-2023.xlsx",
-                "besk-cup-2023-1-duesseldorf.html"
+                tournamentConfig.tournament,
+                tournamentConfig.generatorConfig.visibleTeamNames,
+                tournamentConfig.generatorConfig.inputExcelFilePath,
+                tournamentConfig.generatorConfig.htmlFileName,
+                tournamentConfig.generatorConfig.excelParser
             )
         }
 
