@@ -25,13 +25,15 @@ class Main : Logging {
             val configsList = JacksonUtils.parseConfigs(CONFIGS_FILE_PATH)
             val configs = configsList.configs
 
+            var index = 0
+
             val generators = listOf(
-                generateTournamentHtmlToStandardDirectory(configs[0]),
-                generateTournamentHtmlToStandardDirectory(configs[1]),
-                generateTournamentHtmlToStandardDirectory(configs[2]),
-                generateTournamentHtmlToStandardDirectory(configs[3]),
-                generateTournamentHtmlToStandardDirectory(configs[4]),
-                generateTournamentHtmlToStandardDirectory(configs[5]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
                 parseEkvestria9(),
                 parse_hypercube_3(),
                 parse_ostrovok_besk_may_2023(),
