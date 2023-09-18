@@ -45,8 +45,8 @@ class Main : Logging {
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
-                parseEkvestria7(),
-                parseEkvestria6(),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
                 parse_ostrovok_besk(),
                 parse_besk_zemli_35(),
                 parse_slavjanka_bez_razdatok_5_stage_1_2023(),
@@ -68,67 +68,6 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
-        }
-
-        private fun parseEkvestria7(): TournamentGenerator {
-            val tournament = Tournament(
-                8951,
-                "Кубок Эквестрии – 7: Winter Wrap Up!",
-                "Дортмунд"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Алиев"),
-                Tour(2, "Файнбурд"),
-                Tour(3, "Михеев")
-            )
-
-            val visibleTeamNames = listOf(
-                "Раздолье",
-                "Так получилось",
-                "Авось",
-                "Эльфы"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8951-13-Mar-2023.xlsx",
-                "ekvestria-7-dortmund.html"
-            )
-        }
-
-        private fun parseEkvestria6(): TournamentGenerator {
-            val tournament = Tournament(
-                8873,
-                "Кубок Эквестрии – 6: Blizzard Whirl",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Карясов"),
-                Tour(2, "Зырянов"),
-                Tour(3, "Алиев")
-            )
-
-            val visibleTeamNames = listOf(
-                "Сфинкс-party",
-                "ЖмеR",
-                "Счастливое число",
-                "И",
-                "Так получилось",
-                "Проти вiтра",
-                "Авось"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8873-03-Mar-2023.xlsx",
-                "ekvestria-6-duesseldorf.html"
-            )
         }
 
         private fun parse_ostrovok_besk(): TournamentGenerator {

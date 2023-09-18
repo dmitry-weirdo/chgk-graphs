@@ -617,6 +617,75 @@
         "inputExcelFilePath": "tournament-tours-8740-16-Mar-2023.xlsx",
         "htmlFileName": "premier-march-ydes-duesseldorf.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 8951,
+        "name": "Кубок Эквестрии – 7: Winter Wrap Up!",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Алиев"
+          },
+          {
+            "number": 2,
+            "editor": "Файнбурд"
+          },
+          {
+            "number": 3,
+            "editor": "Михеев"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Раздолье",
+          "Так получилось",
+          "Авось",
+          "Эльфы"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8951-13-Mar-2023.xlsx",
+        "htmlFileName": "ekvestria-7-dortmund.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8873,
+        "name": "Кубок Эквестрии – 6: Blizzard Whirl",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Карясов"
+          },
+          {
+            "number": 2,
+            "editor": "Зырянов"
+          },
+          {
+            "number": 3,
+            "editor": "Алиев"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Сфинкс-party",
+          "ЖмеR",
+          "Счастливое число",
+          "И",
+          "Так получилось",
+          "Проти вiтра",
+          "Авось"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8873-03-Mar-2023.xlsx",
+        "htmlFileName": "ekvestria-6-duesseldorf.html"
+      }
     }
   ]
 }
