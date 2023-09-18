@@ -34,9 +34,9 @@ class Main : Logging {
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
-                parseEkvestria9(),
-                parse_hypercube_3(),
-                parse_ostrovok_besk_may_2023(),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
                 parse_SPV_spring_2023(),
                 parseEkvestria8(),
                 parse_lm_orange_light(),
@@ -68,98 +68,6 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
-        }
-
-        private fun parseEkvestria9(): TournamentGenerator {
-            val tournament = Tournament(
-                9196,
-                "Кубок Эквестрии — 9: Raise the Sun",
-                "Дортмунд"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Алиев"),
-                Tour(2, "Мерзляков"),
-                Tour(3, "Колесов")
-            )
-
-            val visibleTeamNames = listOf(
-                "Грудка Ктулху",
-                "Авидас расслабонис",
-                "Эйфория"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-9196-31-May-2023.xlsx",
-                "ekvestria-9-dortmund.html"
-            )
-        }
-
-        private fun parse_hypercube_3(): TournamentGenerator {
-            val tournament = Tournament(
-                8917,
-                "III сезон синхронного турнира «Куб». Финал (Гиперкуб)",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Брюханов", 6),
-                Tour(2, "Кунилов / Парр", 6),
-                Tour(3, "Пономарёв / Столяров", 6),
-                Tour(4, "Иванов / Сахаров", 6),
-                Tour(5, "Хаиткулов / Сахаров", 6),
-                Tour(6, "Коврижных", 6),
-            )
-
-            val visibleTeamNames = listOf(
-                "Ясен Пень",
-                "Счастливое число",
-                "Проти вiтру",
-                "Авось",
-                "И",
-                "ЖмеR",
-                "Сфинкс-party",
-                "Сборная качалки"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8917-28-May-2023.xlsx",
-                "hypercube-3.html",
-            )
-        }
-
-        private fun parse_ostrovok_besk_may_2023(): TournamentGenerator {
-            val tournament = Tournament(
-                9070,
-                "Островок Бесконечности: май",
-                "Дортмунд"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Гулецкий"),
-                Tour(2, "Казначеев"),
-                Tour(3, "Саксонов")
-            )
-
-            val visibleTeamNames = listOf(
-                "Грудка Ктулху",
-                "Авось",
-                "Эльфы",
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-9070-22-May-2023.xlsx",
-                "ostrovok-besk-may-2023.html"
-            )
         }
 
         private fun parse_SPV_spring_2023(): TournamentGenerator {

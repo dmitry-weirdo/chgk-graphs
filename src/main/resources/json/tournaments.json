@@ -222,6 +222,125 @@
         "inputExcelFilePath": "tournament_tours_9398_30_Jun_2023_1_Серия_Premier_измен.xlsx",
         "htmlFileName": "premier-sunny-days-2023-duesseldorf.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 9196,
+        "name": "Кубок Эквестрии — 9: Raise the Sun",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Алиев"
+          },
+          {
+            "number": 2,
+            "editor": "Мерзляков"
+          },
+          {
+            "number": 3,
+            "editor": "Колесов"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Грудка Ктулху",
+          "Авидас расслабонис",
+          "Эйфория"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-9196-31-May-2023.xlsx",
+        "htmlFileName": "ekvestria-9-dortmund.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8917,
+        "name": "III сезон синхронного турнира «Куб». Финал (Гиперкуб)",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Брюханов",
+            "questionsCount": 6
+          },
+          {
+            "number": 2,
+            "editor": "Кунилов / Парр",
+            "questionsCount": 6
+          },
+          {
+            "number": 3,
+            "editor": "Пономарёв / Столяров",
+            "questionsCount": 6
+          },
+          {
+            "number": 4,
+            "editor": "Иванов / Сахаров",
+            "questionsCount": 6
+          },
+          {
+            "number": 5,
+            "editor": "Хаиткулов / Сахаров",
+            "questionsCount": 6
+          },
+          {
+            "number": 6,
+            "editor": "Коврижных",
+            "questionsCount": 6
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Ясен Пень",
+          "Счастливое число",
+          "Проти вiтру",
+          "Авось",
+          "И",
+          "ЖмеR",
+          "Сфинкс-party",
+          "Сборная качалки"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8917-28-May-2023.xlsx",
+        "htmlFileName": "hypercube-3.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 9070,
+        "name": "Островок Бесконечности: май",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Гулецкий"
+          },
+          {
+            "number": 2,
+            "editor": "Казначеев"
+          },
+          {
+            "number": 3,
+            "editor": "Саксонов"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Грудка Ктулху",
+          "Авось",
+          "Эльфы"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-9070-22-May-2023.xlsx",
+        "htmlFileName": "ostrovok-besk-may-2023.html"
+      }
     }
   ]
 }
