@@ -1,5 +1,4 @@
 {
-  "configs2": [],
   "configs": [
     {
       "tournament": {
@@ -150,6 +149,78 @@
 
         "inputExcelFilePath": "tournament_tours_9501_29_Jul_2023_Прост_Украаш_1.xlsx",
         "htmlFileName": "simple-decoration-2023-summer-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 9487,
+        "name": "Зеркало Ultima Tule",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Шибанов"
+          },
+          {
+            "number": 2,
+            "editor": "Мерзляков"
+          },
+          {
+            "number": 3,
+            "editor": "Коробейников"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Ясень Пень",
+          "ЖмеR",
+          "Проти вiтру",
+          "Авось",
+          "И",
+          "Сфинкс-party"
+        ],
+
+        "inputExcelFilePath": "tournament_tours_9487_16_Jul_2023_Ултима_Туле_1_Испр.xlsx",
+        "htmlFileName": "ultima-tule-2023-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 9398,
+        "name": "Серия Premier. Солнечные дни – 2023",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Ясень Пень",
+          "И",
+          "Раздолье",
+          "Берлина кого-то привела",
+          "Рациональное число",
+          "Счастливое число",
+          "Авось",
+          "ЖмеR"
+        ],
+
+        "inputExcelFilePath": "tournament_tours_9398_30_Jun_2023_1_Серия_Premier_измен.xlsx",
+        "htmlFileName": "premier-sunny-days-2023-duesseldorf.html"
       }
     }
   ]
