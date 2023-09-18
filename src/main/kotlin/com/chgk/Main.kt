@@ -20,6 +20,7 @@ class Main : Logging {
         @JvmStatic
         fun main(args: Array<String>) {
             val generators = listOf(
+                parse_besk_cup_2023_1(),
                 parse_avgustiner_2023(),
                 parse_bojko_okjob(),
                 parseSimpleDecoration_2023_summer(),
@@ -59,6 +60,43 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
+        }
+
+        private fun parse_besk_cup_2023_1(): TournamentGenerator {
+            val tournament = Tournament(
+                9416,
+                "Кубок Бесконечности: первый этап. Камень Реальности (синхрон) ",
+                "Дюссельдорф",
+                3
+            )
+
+            // tours metadata are not parsed from Excel
+            tournament.addTours(
+                Tour(1, "Полевой / Рыбачук"),
+                Tour(2, "Полевой / Рыбачук / Скиренко / Мереминский"),
+                Tour(3, "Скиренко / Мереминский")
+            )
+
+            val visibleTeamNames = listOf(
+                "Ясен Пень",
+                "И",
+                "Проти вiтру",
+                "Без понятия",
+                "Авось",
+                "Счастливое число",
+                "Черемушки",
+                "Сфинкс-party",
+                "Не читал, но обсуждаю",
+                "ЖмеR",
+            )
+
+            return generateTournamentHtmlToStandardDirectory(
+                tournament,
+                visibleTeamNames,
+                StandardXlsxParser,
+                "tournament-tours-9416-15-Sep-2023.xlsx",
+                "besk-cup-2023-1-duesseldorf.html"
+            )
         }
 
         private fun parse_avgustiner_2023(): TournamentGenerator {
