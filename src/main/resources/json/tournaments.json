@@ -1076,6 +1076,113 @@
         "inputExcelFilePath": "tournament-tours-8633-13-Dec-2022.xlsx",
         "htmlFileName": "ekvestria-4-duesseldorf.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 8561,
+        "name": "Топ-1000 XIII (синхрон)",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Так получилось",
+          "Сфинкс-party",
+          "Ясен Пень",
+          "ЖмеR",
+          "Авось",
+          "Один в поле"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8561-24-Nov-2022_н.xlsx",
+        "htmlFileName": "top-1000-2022-3-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8589,
+        "name": "I международный синхронный турнир \"TRIZ. 4 этап\"",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Терентьев"
+          },
+          {
+            "number": 2,
+            "editor": "Коробейников"
+          },
+          {
+            "number": 3,
+            "editor": "Мерзляков"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Сфинкс-party",
+          "И",
+          "Проти вiтру",
+          "Ты не один",
+          "Ясен Пень",
+          "Счастливое число",
+          "Авось",
+          "Так получилось"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8589-11-Nov-2022.xlsx",
+        "htmlFileName": "triz-2022-4-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 7700,
+        "name": "XX Открытый всеобщий синхронный чемпионат. 3 этап (синхрон)",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Дидбаридзе"
+          },
+          {
+            "number": 2,
+            "editor": "Разумов"
+          },
+          {
+            "number": 3,
+            "editor": "Шередега"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Эльфы",
+          "Сфинкс-party",
+          "Дижжон",
+          "Авось",
+          "Так получилось",
+          "Вестфальский Мир"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-7700-07-Nov-2022__2.xlsx",
+        "htmlFileName": "ovsch-2022-3-dortmund.html"
+      }
     }
   ]
 }

@@ -58,9 +58,9 @@ class Main : Logging {
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
-                parseTop1000_2022(),
-                parseTriz2022_4(),
-                parseOvsch2022_3(),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
                 parseOcch2022(),
             )
 
@@ -68,101 +68,6 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
-        }
-
-        private fun parseTop1000_2022(): TournamentGenerator {
-            val tournament = Tournament(
-                8561,
-                "Топ-1000 XIII (синхрон)",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Тур 1"),
-                Tour(2, "Тур 2"),
-                Tour(3, "Тур 3")
-            )
-
-            val visibleTeamNames = listOf(
-                "Так получилось",
-                "Сфинкс-party",
-                "Ясен Пень",
-                "ЖмеR",
-                "Авось",
-                "Один в поле"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8561-24-Nov-2022_н.xlsx",
-                "top-1000-2022-3-duesseldorf.html"
-            )
-        }
-
-        private fun parseOvsch2022_3(): TournamentGenerator {
-            val tournament = Tournament(
-                7700,
-                "XX Открытый всеобщий синхронный чемпионат. 3 этап (синхрон)",
-                "Дортмунд"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Дидбаридзе"),
-                Tour(2, "Разумов"),
-                Tour(3, "Шередега")
-            )
-
-            val visibleTeamNames = listOf(
-                "Эльфы",
-                "Сфинкс-party",
-                "Дижжон",
-                "Авось",
-                "Так получилось",
-                "Вестфальский Мир"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-7700-07-Nov-2022__2.xlsx",
-                "ovsch-2022-3-dortmund.html"
-            )
-        }
-
-        private fun parseTriz2022_4(): TournamentGenerator {
-            val tournament = Tournament(
-                8589,
-                "I международный синхронный турнир \"TRIZ. 4 этап\"",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Терентьев"),
-                Tour(2, "Коробейников"),
-                Tour(3, "Мерзляков")
-            )
-
-            val visibleTeamNames = listOf(
-                "Сфинкс-party",
-                "И",
-                "Проти вiтру",
-                "Ты не один",
-                "Ясен Пень",
-                "Счастливое число",
-                "Авось",
-                "Так получилось"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8589-11-Nov-2022.xlsx",
-                "triz-2022-4-duesseldorf.html"
-            )
         }
 
         private fun parseOcch2022(): TournamentGenerator {
