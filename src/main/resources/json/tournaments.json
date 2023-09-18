@@ -893,6 +893,189 @@
         "inputExcelFilePath": "tournament-tours-8803-25-Jan-2023__1.xlsx",
         "htmlFileName": "easy-smolensk-5-2023-dortmund.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 8835,
+        "name": "Второй Ворон - синхрон",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Алиев"
+          },
+          {
+            "number": 2,
+            "editor": "Шибанов"
+          },
+          {
+            "number": 3,
+            "editor": "Саксонов"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Так получилось",
+          "И",
+          "Ясен Пень",
+          "Трое в лодке",
+          "Авось",
+          "ЖмеR",
+          "Сфинкс-party"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8835-20-Jan-2023.xlsx",
+        "htmlFileName": "second-raven-2023-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8755,
+        "name": "Международный синхронный турнир \"Кубок Оливье 2023\"",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Так получилось",
+          "ЖмеR",
+          "Ясен Пень",
+          "И",
+          "Счастливое число",
+          "Два капитана",
+          "Авось",
+          "Сфинкс-party"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8755-07-Jan-2023.xlsx",
+        "htmlFileName": "olivier-cup-2023-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8791,
+        "name": "Международный синхронный чемпионат \"Кубок невМоГоТУ - 2022\"",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "Раздолье",
+          "Сборная NRW",
+          "Авось",
+          "Эльфы"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8791-29-Dec-2022.xlsx",
+        "htmlFileName": "nevmogotu-2022-dortmund.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8669,
+        "name": "Международный синхронный турнир \"Лёгкий Смоленск - 20\"",
+        "city": "Дюссельдорф",
+        "questionsPerTour": 13,
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1",
+            "questionsCount": 13
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2",
+            "questionsCount": 13
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3",
+            "questionsCount": 13
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "Так получилось",
+          "ЖмеR",
+          "Сфинкс-party",
+          "Ясен Пень",
+          "ИК Ковчег",
+          "Авось",
+          "Счастливое число"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8669-28-Dec-2022.xlsx",
+        "htmlFileName": "easy-smolensk-20-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8633,
+        "name": "Кубок Эквестрии – 4: Cold Storm (синхрон)",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Коробейников"
+          },
+          {
+            "number": 2,
+            "editor": "Алиев"
+          },
+          {
+            "number": 3,
+            "editor": "Казначеев"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "Так получилось",
+          "Сфинкс-party",
+          "Ясен Пень",
+          "ИК Ковчег",
+          "Авось"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8633-13-Dec-2022.xlsx",
+        "htmlFileName": "ekvestria-4-duesseldorf.html"
+      }
     }
   ]
 }

@@ -53,11 +53,11 @@ class Main : Logging {
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
-                parseSecondRaven(),
-                parseOlivierCup_2023(),
-                parseNevMoGoTu_2022(),
-                parseEasySmolensk20(),
-                parseEkvestria4(),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
                 parseTop1000_2022(),
                 parseTriz2022_4(),
                 parseOvsch2022_3(),
@@ -68,166 +68,6 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
-        }
-
-        private fun parseSecondRaven(): TournamentGenerator {
-            val tournament = Tournament(
-                8835,
-                "Второй Ворон - синхрон",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Алиев"),
-                Tour(2, "Шибанов"),
-                Tour(3, "Саксонов")
-            )
-
-            val visibleTeamNames = listOf(
-                "Так получилось",
-                "И",
-                "Ясен Пень",
-                "Трое в лодке",
-                "Авось",
-                "ЖмеR",
-                "Сфинкс-party"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8835-20-Jan-2023.xlsx",
-                "second-raven-2023-duesseldorf.html"
-            )
-        }
-
-        private fun parseOlivierCup_2023(): TournamentGenerator {
-            val tournament = Tournament(
-                8755,
-                "Международный синхронный турнир \"Кубок Оливье 2023\"",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Тур 1"),
-                Tour(2, "Тур 2"),
-                Tour(3, "Тур 3")
-            )
-
-            val visibleTeamNames = listOf(
-                "Так получилось",
-                "ЖмеR",
-                "Ясен Пень",
-                "И",
-                "Счастливое число",
-                "Два капитана",
-                "Авось",
-                "Сфинкс-party",
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8755-07-Jan-2023.xlsx",
-                "olivier-cup-2023-duesseldorf.html"
-            )
-        }
-
-        private fun parseNevMoGoTu_2022(): TournamentGenerator {
-            val tournament = Tournament(
-                8791,
-                "Международный синхронный чемпионат \"Кубок невМоГоТУ - 2022\"",
-                "Дортмунд"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Тур 1"),
-                Tour(2, "Тур 2"),
-                Tour(3, "Тур 3")
-            )
-
-            val visibleTeamNames = listOf(
-                "И",
-                "Раздолье",
-                "Сборная NRW",
-                "Авось",
-                "Эльфы",
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8791-29-Dec-2022.xlsx",
-                "nevmogotu-2022-dortmund.html"
-            )
-        }
-
-        private fun parseEasySmolensk20(): TournamentGenerator {
-            val tournament = Tournament(
-                8669,
-                "Международный синхронный турнир \"Лёгкий Смоленск - 20\"",
-                "Дюссельдорф",
-                questionsPerTour = 13
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Тур 1", 13),
-                Tour(2, "Тур 2", 13),
-                Tour(3, "Тур 3", 13)
-            )
-
-            val visibleTeamNames = listOf(
-                "И",
-                "Так получилось",
-                "ЖмеR",
-                "Сфинкс-party",
-                "Ясен Пень",
-                "ИК Ковчег",
-                "Авось",
-                "Счастливое число",
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8669-28-Dec-2022.xlsx",
-                "easy-smolensk-20-duesseldorf.html"
-            )
-        }
-
-        private fun parseEkvestria4(): TournamentGenerator {
-            val tournament = Tournament(
-                8633,
-                "Кубок Эквестрии – 4: Cold Storm (синхрон)",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Коробейников"),
-                Tour(2, "Алиев"),
-                Tour(3, "Казначеев")
-            )
-
-            val visibleTeamNames = listOf(
-                "И",
-                "Так получилось",
-                "Сфинкс-party",
-                "Ясен Пень",
-                "ИК Ковчег",
-                "Авось",
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8633-13-Dec-2022.xlsx",
-                "ekvestria-4-duesseldorf.html"
-            )
         }
 
         private fun parseTop1000_2022(): TournamentGenerator {
