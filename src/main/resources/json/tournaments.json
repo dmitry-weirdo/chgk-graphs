@@ -479,6 +479,144 @@
         "inputExcelFilePath": "tournament-tours-9014-16-Apr-2023.xlsx",
         "htmlFileName": "premier-cup-of-light-horses-2023-duesseldorf.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 8425,
+        "name": "III сезон синхронного турнира «Куб». Этап 8. Апрель",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Раздолье",
+          "Сфинкс-party",
+          "Эльфы",
+          "Филин Dank"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8425-06-Apr-2023__1.xlsx",
+        "htmlFileName": "cube-8-dortmund.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8842,
+        "name": "Синхронный турнир \"12 граней-2023. Первая игра.\"",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Счастливое число",
+          "Авось",
+          "Сфинкс-party",
+          "И",
+          "Так получилось",
+          "Ясен Пень",
+          "Проти вiтру"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8842-01-Apr-2023_1.xlsx",
+        "htmlFileName": "12-graney-1-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 9013,
+        "name": "II международный синхронный турнир \"TRIZ. 1 этап\"",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Колмаков"
+          },
+          {
+            "number": 2,
+            "editor": "Ершов"
+          },
+          {
+            "number": 3,
+            "editor": "Солахян"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Филин Dank",
+          "А если найдем?",
+          "ЖмеR",
+          "Раздолье",
+          "Авось",
+          "Эльфы"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-9013-27-Mar-2023__2.xlsx",
+        "htmlFileName": "triz-2023-1-dortmund.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8740,
+        "name": "Серия Premier. Мартовские иды – 2023",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Коробейников"
+          },
+          {
+            "number": 2,
+            "editor": "Мерзляков"
+          },
+          {
+            "number": 3,
+            "editor": "Шорин"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "ЖмеR",
+          "Так получилось",
+          "Счастливое число",
+          "Сфинкс-party"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8740-16-Mar-2023.xlsx",
+        "htmlFileName": "premier-march-ydes-duesseldorf.html"
+      }
     }
   ]
 }

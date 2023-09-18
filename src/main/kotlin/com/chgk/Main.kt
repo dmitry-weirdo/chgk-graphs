@@ -41,10 +41,10 @@ class Main : Logging {
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
-                parse_cube_8(),
-                parse_12_graney_1(),
-                parseTriz_2023_1(),
-                parsePremierMarchYdes(),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
                 parseEkvestria7(),
                 parseEkvestria6(),
                 parse_ostrovok_besk(),
@@ -69,129 +69,6 @@ class Main : Logging {
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
         }
-
-        private fun parse_cube_8(): TournamentGenerator {
-            val tournament = Tournament(
-                8425,
-                "III сезон синхронного турнира «Куб». Этап 8. Апрель",
-                "Дортмунд"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Тур 1"),
-                Tour(2, "Тур 2"),
-                Tour(3, "Тур 3")
-            )
-
-            val visibleTeamNames = listOf(
-                "Раздолье",
-                "Сфинкс-party",
-                "Эльфы",
-                "Филин Dank"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8425-06-Apr-2023__1.xlsx",
-                "cube-8-dortmund.html"
-            )
-        }
-
-        private fun parse_12_graney_1(): TournamentGenerator {
-            val tournament = Tournament(
-                8842,
-                "Синхронный турнир \"12 граней-2023. Первая игра.\"",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Тур 1"),
-                Tour(2, "Тур 2"),
-                Tour(3, "Тур 3")
-            )
-
-            val visibleTeamNames = listOf(
-                "Счастливое число",
-                "Авось",
-                "Сфинкс-party",
-                "И",
-                "Так получилось",
-                "Ясен Пень",
-                "Проти вiтру"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8842-01-Apr-2023_1.xlsx",
-                "12-graney-1-duesseldorf.html"
-            )
-        }
-
-        private fun parseTriz_2023_1(): TournamentGenerator {
-            val tournament = Tournament(
-                9013,
-                "II международный синхронный турнир \"TRIZ. 1 этап\"",
-                "Дортмунд"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Колмаков"),
-                Tour(2, "Ершов"),
-                Tour(3, "Солахян")
-            )
-
-            val visibleTeamNames = listOf(
-                "Филин Dank",
-                "А если найдем?",
-                "ЖмеR",
-                "Раздолье",
-                "Авось",
-                "Эльфы"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-9013-27-Mar-2023__2.xlsx",
-                "triz-2023-1-dortmund.html"
-            )
-        }
-
-        private fun parsePremierMarchYdes(): TournamentGenerator {
-            val tournament = Tournament(
-                8740,
-                "Серия Premier. Мартовские иды – 2023",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Коробейников"),
-                Tour(2, "Мерзляков"),
-                Tour(3, "Шорин")
-            )
-
-            val visibleTeamNames = listOf(
-                "И",
-                "ЖмеR",
-                "Так получилось",
-                "Счастливое число",
-                "Сфинкс-party"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8740-16-Mar-2023.xlsx",
-                "premier-march-ydes-duesseldorf.html"
-            )
-        }
-
 
         private fun parseEkvestria7(): TournamentGenerator {
             val tournament = Tournament(
