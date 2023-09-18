@@ -66,8 +66,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9416,
                 "Кубок Бесконечности: первый этап. Камень Реальности (синхрон) ",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -103,8 +102,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9374,
                 "Международный синхронный турнир \"Блаженный Августинер 2023\"",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -135,8 +133,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9612,
                 "Легкий и бодренький международный фестиваль загадок",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -174,8 +171,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9501,
                 "Международный синхронный турнир \"Простое украшенье\" 2023. Лето.",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -212,8 +208,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9487,
                 "Зеркало Ultima Tule",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -246,8 +241,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9398,
                 "Серия Premier. Солнечные дни – 2023",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -282,8 +276,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9196,
                 "Кубок Эквестрии — 9: Raise the Sun",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -312,8 +305,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8917,
                 "III сезон синхронного турнира «Куб». Финал (Гиперкуб)",
-                "Дюссельдорф",
-                3,
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -350,8 +342,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9070,
                 "Островок Бесконечности: май",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -380,8 +371,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9018,
                 "Синхрон простых вопросов. Весна – 2023",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -415,8 +405,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9033,
                 "Кубок Эквестрии – 8: Sprinkle Medley",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -450,8 +439,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9116,
                 "LM Оранжевый. Лёгкий",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -481,8 +469,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9014,
                 "Серия Premier. Кубок светлых лошадок – 2023",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -512,8 +499,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8425,
                 "III сезон синхронного турнира «Куб». Этап 8. Апрель",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -543,8 +529,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8842,
                 "Синхронный турнир \"12 граней-2023. Первая игра.\"",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -577,8 +562,7 @@ class Main : Logging {
             val tournament = Tournament(
                 9013,
                 "II международный синхронный турнир \"TRIZ. 1 этап\"",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -610,8 +594,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8740,
                 "Серия Premier. Мартовские иды – 2023",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -643,8 +626,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8951,
                 "Кубок Эквестрии – 7: Winter Wrap Up!",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -674,8 +656,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8873,
                 "Кубок Эквестрии – 6: Blizzard Whirl",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -708,8 +689,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8809,
                 "Островок Бесконечности",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -742,8 +722,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8793,
                 "Бесконечные Земли. Том XXXV (синхрон)",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -774,7 +753,6 @@ class Main : Logging {
                 8871,
                 "V международный синхронный турнир \"Славянка без раздаток. 1 этап\"",
                 "Дортмунд",
-                3,
                 questionsPerTour = 15
             )
 
@@ -805,8 +783,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8734,
                 "Синхрон простых вопросов. Зима – 2023",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -836,8 +813,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8802,
                 "Международный синхронный турнир \"Простое украшенье\" 2023",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -867,7 +843,6 @@ class Main : Logging {
                 8803,
                 "Международный синхронный турнир \"Простой Смоленск - 5\"",
                 "Дортмунд",
-                3,
                 questionsPerTour = 13
             )
 
@@ -897,8 +872,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8835,
                 "Второй Ворон - синхрон",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -931,8 +905,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8755,
                 "Международный синхронный турнир \"Кубок Оливье 2023\"",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -966,8 +939,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8791,
                 "Международный синхронный чемпионат \"Кубок невМоГоТУ - 2022\"",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -999,7 +971,6 @@ class Main : Logging {
                 8669,
                 "Международный синхронный турнир \"Лёгкий Смоленск - 20\"",
                 "Дюссельдорф",
-                3,
                 questionsPerTour = 13
             )
 
@@ -1034,8 +1005,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8633,
                 "Кубок Эквестрии – 4: Cold Storm (синхрон)",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -1067,8 +1037,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8561,
                 "Топ-1000 XIII (синхрон)",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -1100,8 +1069,7 @@ class Main : Logging {
             val tournament = Tournament(
                 7700,
                 "XX Открытый всеобщий синхронный чемпионат. 3 этап (синхрон)",
-                "Дортмунд",
-                3
+                "Дортмунд"
             )
 
             // tours metadata are not parsed from Excel
@@ -1133,8 +1101,7 @@ class Main : Logging {
             val tournament = Tournament(
                 8589,
                 "I международный синхронный турнир \"TRIZ. 4 этап\"",
-                "Дюссельдорф",
-                3
+                "Дюссельдорф"
             )
 
             // tours metadata are not parsed from Excel
@@ -1224,7 +1191,8 @@ class Main : Logging {
             val tournament = Tournament(
                 6636,
                 "Открытый чемпионат Чехии по «Что? Где? Когда?»",
-                "Прага"
+                "Прага",
+                6
             )
 
             tournament.addTours(

@@ -15,7 +15,7 @@ data class Tournament (
     val city: String, // todo: probably make city a separate class /  enum
     // todo: add type (Турнир, синхрон, асинхрон, usw - check the rating site API)
     // todo: add date or dates
-    var toursCount: Int = 6,
+    var toursCount: Int = 3,
     var questionsPerTour: Int = 12,
     val teams: MutableList<Team> = mutableListOf(),
     val tours: MutableList<Tour> = mutableListOf()
