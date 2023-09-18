@@ -21,10 +21,11 @@ class Main : Logging {
 
         @JvmStatic
         fun main(args: Array<String>) {
-            val configsList = JacksonUtils.parseConfigs(CONFIGS_FILE_PATH)
-            val configs = configsList.configs
+            val configs = JacksonUtils.parseConfigs(CONFIGS_FILE_PATH)
 
-            val generators = configs.map { generateTournamentHtmlToStandardDirectory(it) }
+            val generators = configs
+                .configs
+                .map { generateTournamentHtmlToStandardDirectory(it) }
 
             val template = IndexTemplate()
             template.fillTemplateData(generators)
