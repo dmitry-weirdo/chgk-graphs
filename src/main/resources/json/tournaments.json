@@ -686,6 +686,112 @@
         "inputExcelFilePath": "tournament-tours-8873-03-Mar-2023.xlsx",
         "htmlFileName": "ekvestria-6-duesseldorf.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 8809,
+        "name": "Островок Бесконечности",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Мухаметкалиев"
+          },
+          {
+            "number": 2,
+            "editor": "Мерзляков"
+          },
+          {
+            "number": 3,
+            "editor": "Саксонов"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Счастливое число",
+          "Так получилось",
+          "Сфинкс-party",
+          "ЖмеR",
+          "И",
+          "Авось",
+          "Ясен пень"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8809-15-Feb-2023.xlsx",
+        "htmlFileName": "ostrovok-besk.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8793,
+        "name": "Бесконечные Земли. Том XXXV (синхрон)",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Полевой / Рыбачук"
+          },
+          {
+            "number": 2,
+            "editor": "Ермишкин"
+          },
+          {
+            "number": 3,
+            "editor": "Саксонов"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "Жмеринка",
+          "Авось",
+          "ИК Ковчег"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8793-04-Feb-2023-wc.xlsx",
+        "htmlFileName": "besk-zemli-35.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 8871,
+        "name": "V международный синхронный турнир \"Славянка без раздаток. 1 этап\"",
+        "city": "Дортмунд",
+        "questionsPerTour": 15,
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Мерзляков",
+            "questionsCount": 15
+          },
+          {
+            "number": 2,
+            "editor": "Терентьев",
+            "questionsCount": 15
+          },
+          {
+            "number": 3,
+            "editor": "Колмаков",
+            "questionsCount": 15
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Легион",
+          "Раздолье",
+          "Авось",
+          "Эльф"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-8871-30-Jan-2023.xlsx",
+        "htmlFileName": "sbr-5-stage-1-2023.html"
+      }
     }
   ]
 }

@@ -47,9 +47,9 @@ class Main : Logging {
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
                 generateTournamentHtmlToStandardDirectory(configs[index++]),
-                parse_ostrovok_besk(),
-                parse_besk_zemli_35(),
-                parse_slavjanka_bez_razdatok_5_stage_1_2023(),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
+                generateTournamentHtmlToStandardDirectory(configs[index++]),
                 parse_SPV_winter_2023(),
                 parseSimpleDecoration_2023(),
                 parseEasySmolensk5_2023(),
@@ -68,97 +68,6 @@ class Main : Logging {
             template.fillTemplateData(generators)
             template.export(INDEX_FILE_PATH)
             logger.info("${generators.size} tournaments list generated to the index file \"$INDEX_FILE_PATH\".")
-        }
-
-        private fun parse_ostrovok_besk(): TournamentGenerator {
-            val tournament = Tournament(
-                8809,
-                "Островок Бесконечности",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Мухаметкалиев"),
-                Tour(2, "Мерзляков"),
-                Tour(3, "Саксонов")
-            )
-
-            val visibleTeamNames = listOf(
-                "Счастливое число",
-                "Так получилось",
-                "Сфинкс-party",
-                "ЖмеR",
-                "И",
-                "Авось",
-                "Ясен пень"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8809-15-Feb-2023.xlsx",
-                "ostrovok-besk.html"
-            )
-        }
-
-        private fun parse_besk_zemli_35(): TournamentGenerator {
-            val tournament = Tournament(
-                8793,
-                "Бесконечные Земли. Том XXXV (синхрон)",
-                "Дюссельдорф"
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Полевой / Рыбачук"),
-                Tour(2, "Ермишкин"),
-                Tour(3, "Саксонов")
-            )
-
-            val visibleTeamNames = listOf(
-                "И",
-                "Жмеринка",
-                "Авось",
-                "ИК Ковчег"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8793-04-Feb-2023-wc.xlsx",
-                "besk-zemli-35.html"
-            )
-        }
-
-        private fun parse_slavjanka_bez_razdatok_5_stage_1_2023(): TournamentGenerator {
-            val tournament = Tournament(
-                8871,
-                "V международный синхронный турнир \"Славянка без раздаток. 1 этап\"",
-                "Дортмунд",
-                questionsPerTour = 15
-            )
-
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Мерзляков", questionsCount = 15),
-                Tour(2, "Терентьев", questionsCount = 15),
-                Tour(3, "Колмаков", questionsCount = 15)
-            )
-
-            val visibleTeamNames = listOf(
-                "Легион",
-                "Раздолье",
-                "Авось",
-                "Эльф"
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-8871-30-Jan-2023.xlsx",
-                "sbr-5-stage-1-2023.html"
-            )
         }
 
         private fun parse_SPV_winter_2023(): TournamentGenerator {
