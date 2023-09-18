@@ -3,7 +3,6 @@ package com.chgk
 import com.chgk.config.TournamentConfig
 import com.chgk.excel.ExcelParser
 import com.chgk.excel.StandardXlsxParser
-import com.chgk.excel.XlsxParser
 import com.chgk.freemarker.IndexTemplate
 import com.chgk.model.Team
 import com.chgk.model.Tour
@@ -25,44 +24,7 @@ class Main : Logging {
             val configsList = JacksonUtils.parseConfigs(CONFIGS_FILE_PATH)
             val configs = configsList.configs
 
-            var index = 0
-
-            val generators = listOf(
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++]),
-                generateTournamentHtmlToStandardDirectory(configs[index++])
-            )
+            val generators = configs.map { generateTournamentHtmlToStandardDirectory(it) }
 
             val template = IndexTemplate()
             template.fillTemplateData(generators)
