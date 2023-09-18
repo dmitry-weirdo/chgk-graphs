@@ -341,6 +341,144 @@
         "inputExcelFilePath": "tournament-tours-9070-22-May-2023.xlsx",
         "htmlFileName": "ostrovok-besk-may-2023.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 9018,
+        "name": "Синхрон простых вопросов. Весна – 2023",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Шорин"
+          },
+          {
+            "number": 2,
+            "editor": "Богатов"
+          },
+          {
+            "number": 3,
+            "editor": "Мерзляков"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Ясен Пень",
+          "И",
+          "Авось",
+          "Бездашенные",
+          "Сфинкс-party",
+          "Счастливое число",
+          "ЖмеR"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-9018-13-May-2023.xlsx",
+        "htmlFileName": "spv-spring-2023-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 9033,
+        "name": "Кубок Эквестрии – 8: Sprinkle Medley",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Алиев"
+          },
+          {
+            "number": 2,
+            "editor": "Евтушков"
+          },
+          {
+            "number": 3,
+            "editor": "Полевой / Рыбачук"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Ясен Пень",
+          "Проти вiтру",
+          "Счастливое число",
+          "Авось",
+          "И",
+          "Сфинкс-party",
+          "ЖмеR"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-9033-01-May-2023.xlsx",
+        "htmlFileName": "ekvestria-8-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 9116,
+        "name": "LM Оранжевый. Лёгкий",
+        "city": "Дортмунд",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Сфинкс-party",
+          "Раздолье",
+          "Авось",
+          "Эльфы"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-9116-25-Apr-2023.xlsx",
+        "htmlFileName": "lm-orange-light-dortmund.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 9014,
+        "name": "Серия Premier. Кубок светлых лошадок – 2023",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Пол Пня",
+          "ЖмеR",
+          "Друзи",
+          "Сборная легионеров"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-9014-16-Apr-2023.xlsx",
+        "htmlFileName": "premier-cup-of-light-horses-2023-duesseldorf.html"
+      }
     }
   ]
 }
