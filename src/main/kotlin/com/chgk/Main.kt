@@ -65,7 +65,7 @@ class Main : Logging {
         private fun parse_besk_cup_2023_1(): TournamentGenerator {
             val tournament = Tournament(
                 9416,
-                "Кубок Бесконечности: первый этап. Камень Реальности (синхрон) ",
+                "Кубок Бесконечности: первый этап. Камень Реальности (синхрон)",
                 "Дюссельдорф"
             )
 
@@ -92,7 +92,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9416-15-Sep-2023.xlsx",
                 "besk-cup-2023-1-duesseldorf.html"
             )
@@ -122,7 +121,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament_tours_9374_21_Aug_2023_Блаж_Августинер_2023.xlsx",
                 "avgustiner-dortmund.html"
             )
@@ -160,7 +158,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9612-14-Aug-2023__BOJKOJOB__1.xlsx",
                 "bojko-okjob-duesseldorf.html"
             )
@@ -197,7 +194,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament_tours_9501_29_Jul_2023_Прост_Украаш_1.xlsx",
                 "simple-decoration-2023-summer-duesseldorf.html"
             )
@@ -230,7 +226,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament_tours_9487_16_Jul_2023_Ултима_Туле_1_Испр.xlsx",
                 "ultima-tule-2023-duesseldorf.html"
             )
@@ -265,7 +260,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament_tours_9398_30_Jun_2023_1_Серия_Premier_измен.xlsx",
                 "premier-sunny-days-2023-duesseldorf.html"
             )
@@ -295,7 +289,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9196-31-May-2023.xlsx",
                 "ekvestria-9-dortmund.html"
             )
@@ -332,7 +325,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8917-28-May-2023.xlsx",
                 "hypercube-3.html",
             )
@@ -361,7 +353,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9070-22-May-2023.xlsx",
                 "ostrovok-besk-may-2023.html"
             )
@@ -394,7 +385,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9018-13-May-2023.xlsx",
                 "spv-spring-2023-duesseldorf.html"
             )
@@ -428,7 +418,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9033-01-May-2023.xlsx",
                 "ekvestria-8-duesseldorf.html"
             )
@@ -459,7 +448,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9116-25-Apr-2023.xlsx",
                 "lm-orange-light-dortmund.html"
             )
@@ -489,7 +477,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9014-16-Apr-2023.xlsx",
                 "premier-cup-of-light-horses-2023-duesseldorf.html"
             )
@@ -519,7 +506,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8425-06-Apr-2023__1.xlsx",
                 "cube-8-dortmund.html"
             )
@@ -552,7 +538,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8842-01-Apr-2023_1.xlsx",
                 "12-graney-1-duesseldorf.html"
             )
@@ -584,7 +569,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-9013-27-Mar-2023__2.xlsx",
                 "triz-2023-1-dortmund.html"
             )
@@ -615,7 +599,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8740-16-Mar-2023.xlsx",
                 "premier-march-ydes-duesseldorf.html"
             )
@@ -646,7 +629,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8951-13-Mar-2023.xlsx",
                 "ekvestria-7-dortmund.html"
             )
@@ -679,7 +661,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8873-03-Mar-2023.xlsx",
                 "ekvestria-6-duesseldorf.html"
             )
@@ -712,7 +693,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8809-15-Feb-2023.xlsx",
                 "ostrovok-besk.html"
             )
@@ -742,7 +722,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8793-04-Feb-2023-wc.xlsx",
                 "besk-zemli-35.html"
             )
@@ -773,7 +752,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8871-30-Jan-2023.xlsx",
                 "sbr-5-stage-1-2023.html"
             )
@@ -803,7 +781,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8734-30-Jan-2023_ре.xlsx",
                 "spv-winter-2023-dortmund.html"
             )
@@ -832,7 +809,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8802-25-Jan-2023.xlsx",
                 "simple-decoration-2023-dortmund.html"
             )
@@ -862,7 +838,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8803-25-Jan-2023__1.xlsx",
                 "easy-smolensk-5-2023-dortmund.html"
             )
@@ -895,7 +870,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8835-20-Jan-2023.xlsx",
                 "second-raven-2023-duesseldorf.html"
             )
@@ -929,7 +903,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8755-07-Jan-2023.xlsx",
                 "olivier-cup-2023-duesseldorf.html"
             )
@@ -960,7 +933,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8791-29-Dec-2022.xlsx",
                 "nevmogotu-2022-dortmund.html"
             )
@@ -995,7 +967,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8669-28-Dec-2022.xlsx",
                 "easy-smolensk-20-duesseldorf.html"
             )
@@ -1027,7 +998,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8633-13-Dec-2022.xlsx",
                 "ekvestria-4-duesseldorf.html"
             )
@@ -1059,7 +1029,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8561-24-Nov-2022_н.xlsx",
                 "top-1000-2022-3-duesseldorf.html"
             )
@@ -1091,7 +1060,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-7700-07-Nov-2022__2.xlsx",
                 "ovsch-2022-3-dortmund.html"
             )
@@ -1125,7 +1093,6 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                StandardXlsxParser,
                 "tournament-tours-8589-11-Nov-2022.xlsx",
                 "triz-2022-4-duesseldorf.html"
             )
@@ -1160,18 +1127,18 @@ class Main : Logging {
             return generateTournamentHtmlToStandardDirectory(
                 tournament,
                 visibleTeamNames,
-                XlsxParser,
                 "Результаты Большой игры - 4ОЧЧ.xlsx",
-                "ochh-2022.html"
+                "ochh-2022.html",
+                XlsxParser
             )
         }
 
         private fun generateTournamentHtmlToStandardDirectory(
             tournament: Tournament,
             visibleTeamNames: List<String>,
-            excelParser: ExcelParser,
             inputExcelFilePath: String,
-            htmlFileName: String
+            htmlFileName: String,
+            excelParser: ExcelParser = StandardXlsxParser
         ): TournamentGenerator {
             val generator = TournamentGenerator(
                 tournament,
