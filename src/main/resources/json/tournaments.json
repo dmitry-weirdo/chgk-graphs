@@ -72,6 +72,85 @@
         "inputExcelFilePath": "tournament_tours_9374_21_Aug_2023_Блаж_Августинер_2023.xlsx",
         "htmlFileName": "avgustiner-dortmund.html"
       }
+    },
+    {
+      "tournament": {
+        "id": 9612,
+        "name": "Легкий и бодренький международный фестиваль загадок",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "Не читал, но обсуждаю",
+          "Сфинкс-party",
+          "Проти вiтру",
+          "Так получилось",
+          "Ясен Пень",
+          "Авось",
+          "Счастливое число Грэма",
+          "ЖмеR",
+          "Счастливое число",
+          "Сборная легионеров"
+        ],
+
+        "inputExcelFilePath": "tournament-tours-9612-14-Aug-2023__BOJKOJOB__1.xlsx",
+        "htmlFileName": "bojko-okjob-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
+        "id": 9501,
+        "name": "Международный синхронный турнир \"Простое украшенье\" 2023. Лето.",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Ясен Пень",
+          "Счастливое число",
+          "Арвидас Расслабонис",
+          "И",
+          "Раздолье",
+          "ЖмеR",
+          "Авось",
+          "Сфинкс-party",
+          "Не читал, но обсуждаю",
+          "Великолепная пятёрка"
+        ],
+
+        "inputExcelFilePath": "tournament_tours_9501_29_Jul_2023_Прост_Украаш_1.xlsx",
+        "htmlFileName": "simple-decoration-2023-summer-duesseldorf.html"
+      }
     }
   ]
 }

@@ -28,8 +28,8 @@ class Main : Logging {
             val generators = listOf(
                 parse_besk_cup_2023_1(configs[0]),
                 parse_avgustiner_2023(configs[1]),
-                parse_bojko_okjob(),
-                parseSimpleDecoration_2023_summer(),
+                parse_bojko_okjob(configs[2]),
+                parseSimpleDecoration_2023_summer(configs[3]),
                 parse_ultima_tule_2023(),
                 parse_premier_sunny_days_2023(),
                 parseEkvestria9(),
@@ -74,43 +74,13 @@ class Main : Logging {
         private fun parse_avgustiner_2023(tournamentConfig: TournamentConfig) =
             generateTournamentHtmlToStandardDirectory(tournamentConfig)
 
-        private fun parse_bojko_okjob(): TournamentGenerator {
-            val tournament = Tournament(
-                9612,
-                "Легкий и бодренький международный фестиваль загадок",
-                "Дюссельдорф"
-            )
+        private fun parse_bojko_okjob(tournamentConfig: TournamentConfig) =
+            generateTournamentHtmlToStandardDirectory(tournamentConfig)
 
-            // tours metadata are not parsed from Excel
-            tournament.addTours(
-                Tour(1, "Тур 1"),
-                Tour(2, "Тур 2"),
-                Tour(3, "Тур 3")
-            )
+        private fun parseSimpleDecoration_2023_summer(tournamentConfig: TournamentConfig) =
+            generateTournamentHtmlToStandardDirectory(tournamentConfig)
 
-            val visibleTeamNames = listOf(
-                "И",
-                "Не читал, но обсуждаю",
-                "Сфинкс-party",
-                "Проти вiтру",
-                "Так получилось",
-                "Ясен Пень",
-                "Авось",
-                "Счастливое число Грэма",
-                "ЖмеR",
-                "Счастливое число",
-                "Сборная легионеров",
-            )
-
-            return generateTournamentHtmlToStandardDirectory(
-                tournament,
-                visibleTeamNames,
-                "tournament-tours-9612-14-Aug-2023__BOJKOJOB__1.xlsx",
-                "bojko-okjob-duesseldorf.html"
-            )
-        }
-
-
+/*
         private fun parseSimpleDecoration_2023_summer(): TournamentGenerator {
             val tournament = Tournament(
                 9501,
@@ -145,7 +115,7 @@ class Main : Logging {
                 "simple-decoration-2023-summer-duesseldorf.html"
             )
         }
-
+*/
 
         private fun parse_ultima_tule_2023(): TournamentGenerator {
             val tournament = Tournament(

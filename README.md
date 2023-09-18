@@ -5,3 +5,7 @@
 * [Старый сайт рейтинга знатоков.](https://rating.chgk.info/)
 * [Рейтинг МАИИ.](https://rating.maii.li/)
 * [Подборка полезных ресурсов, связанных с ЧГК.](https://github.com/gltronred/awesome-chgk)
+
+
+## TODO:
+* По умолчанию показывать все команды из Экселя, без явного перечисления в `visibleTeamNames`.
