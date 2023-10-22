@@ -2,6 +2,43 @@
   "configs": [
     {
       "tournament": {
+        "id": 9640,
+        "name": "Жизнь и время Михаэля К.",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Сфинкс-party",
+          "Счастливое число",
+          "Ярослав Мудрый",
+          "Авось",
+          "И",
+          "Не читал, но обсуждаю",
+          "ЖмеR"
+        ],
+
+        "inputExcelFilePath": "9640_27_Sep_2023_Жизнь_и_Время_М_К_1_Зачет.xlsx",
+        "htmlFileName": "life-of-michael-k-2023-duesseldorf.html"
+      }
+    },
+
+    {
+      "tournament": {
         "id": 9416,
         "name": "Кубок Бесконечности: первый этап. Камень Реальности (синхрон)",
         "city": "Дюссельдорф",
