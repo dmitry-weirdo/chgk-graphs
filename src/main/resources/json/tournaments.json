@@ -2,6 +2,44 @@
   "configs": [
     {
       "tournament": {
+        "id": 9626,
+        "name": "Серия Premier. Красно-жёлтые дни – 2023",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Руденко"
+          },
+          {
+            "number": 2,
+            "editor": "Мерзляков"
+          },
+          {
+            "number": 3,
+            "editor": "Шорин / Кожедуб"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "Сфинкс-party",
+          "Не читал, но обсуждаю",
+          "ЖмеR",
+          "Авось",
+          "Ясен Пень",
+          "Ярослав Мудрый",
+          "Легионн"
+        ],
+
+        "inputExcelFilePath": "9626_11_Oct_2023_Серия_Премьер_Кра_желт_дни_1.xlsx",
+        "htmlFileName": "premier-red-yellow-days-2023-duesseldorf.html"
+      }
+    },
+
+    {
+      "tournament": {
         "id": 9640,
         "name": "Жизнь и время Михаэля К.",
         "city": "Дюссельдорф",
