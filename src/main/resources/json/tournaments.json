@@ -2,6 +2,44 @@
   "configs": [
     {
       "tournament": {
+        "id": 9737,
+        "name": "Балтийский бриз: Борей. 4,5 балла по шкале Бофорта",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Островский"
+          },
+          {
+            "number": 2,
+            "editor": "Бороненко"
+          },
+          {
+            "number": 3,
+            "editor": "Терентьев"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Сфинкс-party",
+          "ЖмеR",
+          "И",
+          "Не читал, но обсуждаю",
+          "Авось",
+          "Ясен Пень",
+          "Счастливое число",
+          "Так получилось"
+        ],
+
+        "inputExcelFilePath": "9737-29-Oct-2023__Балтийский_Бриз__1.xlsx",
+        "htmlFileName": "baltic-breeze-borey-duesseldorf.html"
+      }
+    },
+
+    {
+      "tournament": {
         "id": 9626,
         "name": "Серия Premier. Красно-жёлтые дни – 2023",
         "city": "Дюссельдорф",
