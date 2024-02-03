@@ -2,6 +2,44 @@
   "configs": [
     {
       "tournament": {
+        "id": 10187,
+        "name": "Синхронный турнир \"Пилот\"",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "Проти вiтру",
+          "Сфинкс-party",
+          "Авось",
+          "Не читал, но обсуждаю",
+          "ЖмеR",
+          "Номер Восемь",
+          "Марамушта",
+          "ОЛЕХ"
+        ],
+
+        "inputExcelFilePath": "10187-26-Jan-2024__Пилот.xlsx",
+        "htmlFileName": "pilot-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
         "id": 9737,
         "name": "Балтийский бриз: Борей. 4,5 балла по шкале Бофорта",
         "city": "Дюссельдорф",
