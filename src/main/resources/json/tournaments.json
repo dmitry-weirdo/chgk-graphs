@@ -2,6 +2,44 @@
   "configs": [
     {
       "tournament": {
+        "id": 10250,
+        "name": "Песни счастливой зимы",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Губин"
+          },
+          {
+            "number": 2,
+            "editor": "Коробейников"
+          },
+          {
+            "number": 3,
+            "editor": "Мерзляков"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "И",
+          "Не читал, но обсуждаю",
+          "Сфинкс-party",
+          "Проти вiтру",
+          "ЖмеR",
+          "Так получилось",
+          "Авось",
+          "Счастливое число",
+          "Номер Восемь"
+        ],
+
+        "inputExcelFilePath": "10293_Песни_счастливой_зимы_22_Feb_2024_1.xlsx",
+        "htmlFileName": "pesni-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
         "id": 10187,
         "name": "Синхронный турнир \"Пилот\"",
         "city": "Дюссельдорф",
