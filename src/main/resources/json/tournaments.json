@@ -2,6 +2,50 @@
   "configs": [
     {
       "tournament": {
+        "id": 10345,
+        "name": "Синхрон XVII межрегионального кубка Физтеха по интеллектуальным играм. Часть первая. Ньютон",
+        "city": "Дюссельдорф",
+        "toursCount": 4,
+        "questionsPerTour": 9,
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Миротин",
+            "questionsCount": 9
+          },
+          {
+            "number": 2,
+            "editor": "Скиренко",
+            "questionsCount": 9
+          },
+          {
+            "number": 3,
+            "editor": "Сахаров",
+            "questionsCount": 9
+          },
+          {
+            "number": 4,
+            "editor": "Карпук",
+            "questionsCount": 9
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Не читал, но обсуждаю",
+          "Сфинкс-party",
+          "И",
+          "ЖмеR",
+          "Авось"
+        ],
+
+        "inputExcelFilePath": "20240305_Кубок_Физтеха_Ньютон_Дюссельдорф.xlsx",
+        "htmlFileName": "fiztech-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
         "id": 10250,
         "name": "Песни счастливой зимы",
         "city": "Дюссельдорф",
