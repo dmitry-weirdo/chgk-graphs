@@ -2,6 +2,47 @@
   "configs": [
     {
       "tournament": {
+        "id": 10986,
+        "name": "Балтийский Бриз. Challenger III",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Островский"
+          },
+          {
+            "number": 2,
+            "editor": "Терентьев"
+          },
+          {
+            "number": 3,
+            "editor": "Талисайнен"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "На троих",
+          "Безымянная",
+          "Criminal Minds",
+          "Psyhea",
+          "Крефкие орефки",
+          "И",
+          "Ума Палата",
+          "Hagens Honig",
+          "Три демона Эмили дю Шатле",
+          "Авось",
+          "Сфинкс-party"
+        ],
+
+        "inputExcelFilePath": "10986-02-Dec-2024__Balt_Briz__1.xlsx",
+        "htmlFileName": "balt-breeze-challenger-3-duesseldorf.html"
+      }
+    },
+
+    {
+      "tournament": {
         "id": 10345,
         "name": "Синхрон XVII межрегионального кубка Физтеха по интеллектуальным играм. Часть первая. Ньютон",
         "city": "Дюссельдорф",
