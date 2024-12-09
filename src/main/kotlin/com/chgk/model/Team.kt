@@ -20,7 +20,7 @@ data class Team (
         get() = "https://rating.chgk.info/team/${id}"
 
     val linkInNewRating: String
-        get() = "https://rating.maii.li/b/team/${id}/"
+        get() = "https://rating.chgk.gg/b/team/${id}/"
 
     val hasCity: Boolean
         get() = (city != null)

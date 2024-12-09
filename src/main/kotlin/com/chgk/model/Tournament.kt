@@ -24,7 +24,7 @@ data class Tournament(
         get() = "https://rating.chgk.info/tournament/$id"
 
     val linkInNewRating: String
-        get() = "https://rating.maii.li/b/tournament/$id/"
+        get() = "https://rating.chgk.gg/b/tournament/$id/"
 
     val totalQuestions: Int
         get() = toursCount * questionsPerTour
