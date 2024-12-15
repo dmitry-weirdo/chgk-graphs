@@ -2,6 +2,44 @@
   "configs": [
     {
       "tournament": {
+        "id": 11114,
+        "name": "Кубок Гармонии — 38",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Алиев"
+          },
+          {
+            "number": 2,
+            "editor": "Малкин"
+          },
+          {
+            "number": 3,
+            "editor": "Онскуль / Муха"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "А судьи кто?",
+          "Сфинкс-party",
+          "Criminal Minds",
+          "Безымянная",
+          "ЖRём",
+          "Ума Палата",
+          "Шесть демонов Эмили дю Шатле",
+          "И"
+        ],
+
+        "inputExcelFilePath": "11114-14-Dec-2024__Кубок Гармонии__1.xlsx",
+        "htmlFileName": "harmony-cup-38-duesseldorf.html"
+      }
+    },
+
+    {
+      "tournament": {
         "id": 10986,
         "name": "Балтийский Бриз. Challenger III",
         "city": "Дюссельдорф",
