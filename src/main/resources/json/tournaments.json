@@ -2,6 +2,42 @@
   "configs": [
     {
       "tournament": {
+        "id": 11305,
+        "name": "Беловежская зима 2024. Лёгкая",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Великолепная пятёрка",
+          "Авось",
+          "Ума Палата",
+          "И",
+          "Шесть демонов Эмили дю Шатле",
+          "Колобок"
+        ],
+
+        "inputExcelFilePath": "11305-29-Dec-2024__Беловежская_зима__1.xlsx",
+        "htmlFileName": "belovezhskaja-zima-2024-easy-duesseldorf.html"
+      }
+    },
+
+    {
+      "tournament": {
         "id": 11114,
         "name": "Кубок Гармонии — 38",
         "city": "Дюссельдорф",
