@@ -2,6 +2,43 @@
   "configs": [
     {
       "tournament": {
+        "id": 12189,
+        "name": "Очный турнир с Борисом Бурдой в Дюссельдорфе",
+        "city": "Дюссельдорф",
+        "tours": [
+          {
+            "number": 1,
+            "editor": "Тур 1"
+          },
+          {
+            "number": 2,
+            "editor": "Тур 2"
+          },
+          {
+            "number": 3,
+            "editor": "Тур 3"
+          }
+        ]
+      },
+      "generatorConfig": {
+        "visibleTeamNames": [
+          "Ума Палата",
+          "Criminal Minds",
+          "Авось",
+          "ЖRём",
+          "Проти вiтру",
+          "На троих",
+          "Блестящие Тормоза",
+          "Дедушка старый, ему все равно",
+          "Эльфы",
+          "Безымянная"
+        ],
+        "inputExcelFilePath": "12189-20-May-2025__Бурда_в_Дюссельдорфе.xlsx",
+        "htmlFileName": "burda-in-duesseldorf.html"
+      }
+    },
+    {
+      "tournament": {
         "id": 11305,
         "name": "Беловежская зима 2024. Лёгкая",
         "city": "Дюссельдорф",
@@ -20,7 +57,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Великолепная пятёрка",
@@ -30,12 +66,10 @@
           "Шесть демонов Эмили дю Шатле",
           "Колобок"
         ],
-
         "inputExcelFilePath": "11305-29-Dec-2024__Беловежская_зима__1.xlsx",
         "htmlFileName": "belovezhskaja-zima-2024-easy-duesseldorf.html"
       }
     },
-
     {
       "tournament": {
         "id": 11114,
@@ -56,7 +90,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "А судьи кто?",
@@ -68,12 +101,10 @@
           "Шесть демонов Эмили дю Шатле",
           "И"
         ],
-
         "inputExcelFilePath": "11114-14-Dec-2024__Кубок Гармонии__1.xlsx",
         "htmlFileName": "harmony-cup-38-duesseldorf.html"
       }
     },
-
     {
       "tournament": {
         "id": 10986,
@@ -94,7 +125,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "На троих",
@@ -109,12 +139,10 @@
           "Авось",
           "Сфинкс-party"
         ],
-
         "inputExcelFilePath": "10986-02-Dec-2024__Balt_Briz__1.xlsx",
         "htmlFileName": "balt-breeze-challenger-3-duesseldorf.html"
       }
     },
-
     {
       "tournament": {
         "id": 10345,
@@ -145,7 +173,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Не читал, но обсуждаю",
@@ -154,7 +181,6 @@
           "ЖмеR",
           "Авось"
         ],
-
         "inputExcelFilePath": "20240305_Кубок_Физтеха_Ньютон_Дюссельдорф.xlsx",
         "htmlFileName": "fiztech-duesseldorf.html"
       }
@@ -179,7 +205,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -192,7 +217,6 @@
           "Счастливое число",
           "Номер Восемь"
         ],
-
         "inputExcelFilePath": "10293_Песни_счастливой_зимы_22_Feb_2024_1.xlsx",
         "htmlFileName": "pesni-duesseldorf.html"
       }
@@ -217,7 +241,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -230,7 +253,6 @@
           "Марамушта",
           "ОЛЕХ"
         ],
-
         "inputExcelFilePath": "10187-26-Jan-2024__Пилот.xlsx",
         "htmlFileName": "pilot-duesseldorf.html"
       }
@@ -255,7 +277,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Сфинкс-party",
@@ -267,12 +288,10 @@
           "Счастливое число",
           "Так получилось"
         ],
-
         "inputExcelFilePath": "9737-29-Oct-2023__Балтийский_Бриз__1.xlsx",
         "htmlFileName": "baltic-breeze-borey-duesseldorf.html"
       }
     },
-
     {
       "tournament": {
         "id": 9626,
@@ -293,7 +312,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -305,12 +323,10 @@
           "Ярослав Мудрый",
           "Легионн"
         ],
-
         "inputExcelFilePath": "9626_11_Oct_2023_Серия_Премьер_Кра_желт_дни_1.xlsx",
         "htmlFileName": "premier-red-yellow-days-2023-duesseldorf.html"
       }
     },
-
     {
       "tournament": {
         "id": 9640,
@@ -331,7 +347,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Сфинкс-party",
@@ -342,12 +357,10 @@
           "Не читал, но обсуждаю",
           "ЖмеR"
         ],
-
         "inputExcelFilePath": "9640_27_Sep_2023_Жизнь_и_Время_М_К_1_Зачет.xlsx",
         "htmlFileName": "life-of-michael-k-2023-duesseldorf.html"
       }
     },
-
     {
       "tournament": {
         "id": 9416,
@@ -368,7 +381,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Ясен Пень",
@@ -382,7 +394,6 @@
           "Не читал, но обсуждаю",
           "ЖмеR"
         ],
-
         "inputExcelFilePath": "tournament-tours-9416-15-Sep-2023.xlsx",
         "htmlFileName": "besk-cup-2023-1-duesseldorf.html"
       }
@@ -407,7 +418,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Сфинкс-party",
@@ -415,7 +425,6 @@
           "Авось",
           "Эльфы"
         ],
-
         "inputExcelFilePath": "tournament_tours_9374_21_Aug_2023_Блаж_Августинер_2023.xlsx",
         "htmlFileName": "avgustiner-dortmund.html"
       }
@@ -440,7 +449,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -455,7 +463,6 @@
           "Счастливое число",
           "Сборная легионеров"
         ],
-
         "inputExcelFilePath": "tournament-tours-9612-14-Aug-2023__BOJKOJOB__1.xlsx",
         "htmlFileName": "bojko-okjob-duesseldorf.html"
       }
@@ -480,7 +487,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Ясен Пень",
@@ -494,7 +500,6 @@
           "Не читал, но обсуждаю",
           "Великолепная пятёрка"
         ],
-
         "inputExcelFilePath": "tournament_tours_9501_29_Jul_2023_Прост_Украаш_1.xlsx",
         "htmlFileName": "simple-decoration-2023-summer-duesseldorf.html"
       }
@@ -519,7 +524,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Ясень Пень",
@@ -529,7 +533,6 @@
           "И",
           "Сфинкс-party"
         ],
-
         "inputExcelFilePath": "tournament_tours_9487_16_Jul_2023_Ултима_Туле_1_Испр.xlsx",
         "htmlFileName": "ultima-tule-2023-duesseldorf.html"
       }
@@ -554,7 +557,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Ясень Пень",
@@ -566,7 +568,6 @@
           "Авось",
           "ЖмеR"
         ],
-
         "inputExcelFilePath": "tournament_tours_9398_30_Jun_2023_1_Серия_Premier_измен.xlsx",
         "htmlFileName": "premier-sunny-days-2023-duesseldorf.html"
       }
@@ -591,14 +592,12 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Грудка Ктулху",
           "Авидас расслабонис",
           "Эйфория"
         ],
-
         "inputExcelFilePath": "tournament-tours-9196-31-May-2023.xlsx",
         "htmlFileName": "ekvestria-9-dortmund.html"
       }
@@ -641,7 +640,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Ясен Пень",
@@ -653,7 +651,6 @@
           "Сфинкс-party",
           "Сборная качалки"
         ],
-
         "inputExcelFilePath": "tournament-tours-8917-28-May-2023.xlsx",
         "htmlFileName": "hypercube-3.html"
       }
@@ -678,14 +675,12 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Грудка Ктулху",
           "Авось",
           "Эльфы"
         ],
-
         "inputExcelFilePath": "tournament-tours-9070-22-May-2023.xlsx",
         "htmlFileName": "ostrovok-besk-may-2023.html"
       }
@@ -710,7 +705,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Ясен Пень",
@@ -721,7 +715,6 @@
           "Счастливое число",
           "ЖмеR"
         ],
-
         "inputExcelFilePath": "tournament-tours-9018-13-May-2023.xlsx",
         "htmlFileName": "spv-spring-2023-duesseldorf.html"
       }
@@ -746,7 +739,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Ясен Пень",
@@ -757,7 +749,6 @@
           "Сфинкс-party",
           "ЖмеR"
         ],
-
         "inputExcelFilePath": "tournament-tours-9033-01-May-2023.xlsx",
         "htmlFileName": "ekvestria-8-duesseldorf.html"
       }
@@ -782,7 +773,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Сфинкс-party",
@@ -790,7 +780,6 @@
           "Авось",
           "Эльфы"
         ],
-
         "inputExcelFilePath": "tournament-tours-9116-25-Apr-2023.xlsx",
         "htmlFileName": "lm-orange-light-dortmund.html"
       }
@@ -815,7 +804,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Пол Пня",
@@ -823,7 +811,6 @@
           "Друзи",
           "Сборная легионеров"
         ],
-
         "inputExcelFilePath": "tournament-tours-9014-16-Apr-2023.xlsx",
         "htmlFileName": "premier-cup-of-light-horses-2023-duesseldorf.html"
       }
@@ -848,7 +835,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Раздолье",
@@ -856,7 +842,6 @@
           "Эльфы",
           "Филин Dank"
         ],
-
         "inputExcelFilePath": "tournament-tours-8425-06-Apr-2023__1.xlsx",
         "htmlFileName": "cube-8-dortmund.html"
       }
@@ -881,7 +866,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Счастливое число",
@@ -892,7 +876,6 @@
           "Ясен Пень",
           "Проти вiтру"
         ],
-
         "inputExcelFilePath": "tournament-tours-8842-01-Apr-2023_1.xlsx",
         "htmlFileName": "12-graney-1-duesseldorf.html"
       }
@@ -917,7 +900,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Филин Dank",
@@ -927,7 +909,6 @@
           "Авось",
           "Эльфы"
         ],
-
         "inputExcelFilePath": "tournament-tours-9013-27-Mar-2023__2.xlsx",
         "htmlFileName": "triz-2023-1-dortmund.html"
       }
@@ -952,7 +933,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -961,7 +941,6 @@
           "Счастливое число",
           "Сфинкс-party"
         ],
-
         "inputExcelFilePath": "tournament-tours-8740-16-Mar-2023.xlsx",
         "htmlFileName": "premier-march-ydes-duesseldorf.html"
       }
@@ -986,7 +965,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Раздолье",
@@ -994,7 +972,6 @@
           "Авось",
           "Эльфы"
         ],
-
         "inputExcelFilePath": "tournament-tours-8951-13-Mar-2023.xlsx",
         "htmlFileName": "ekvestria-7-dortmund.html"
       }
@@ -1019,7 +996,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Сфинкс-party",
@@ -1030,7 +1006,6 @@
           "Проти вiтра",
           "Авось"
         ],
-
         "inputExcelFilePath": "tournament-tours-8873-03-Mar-2023.xlsx",
         "htmlFileName": "ekvestria-6-duesseldorf.html"
       }
@@ -1055,7 +1030,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Счастливое число",
@@ -1066,7 +1040,6 @@
           "Авось",
           "Ясен пень"
         ],
-
         "inputExcelFilePath": "tournament-tours-8809-15-Feb-2023.xlsx",
         "htmlFileName": "ostrovok-besk.html"
       }
@@ -1091,7 +1064,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -1099,7 +1071,6 @@
           "Авось",
           "ИК Ковчег"
         ],
-
         "inputExcelFilePath": "tournament-tours-8793-04-Feb-2023-wc.xlsx",
         "htmlFileName": "besk-zemli-35.html"
       }
@@ -1128,7 +1099,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Легион",
@@ -1136,7 +1106,6 @@
           "Авось",
           "Эльф"
         ],
-
         "inputExcelFilePath": "tournament-tours-8871-30-Jan-2023.xlsx",
         "htmlFileName": "sbr-5-stage-1-2023.html"
       }
@@ -1161,7 +1130,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Легион",
@@ -1169,7 +1137,6 @@
           "Авось",
           "Эльфы"
         ],
-
         "inputExcelFilePath": "tournament-tours-8734-30-Jan-2023_ре.xlsx",
         "htmlFileName": "spv-winter-2023-dortmund.html"
       }
@@ -1194,14 +1161,12 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Раздолье",
           "Авось",
           "Эльфы-Лайт"
         ],
-
         "inputExcelFilePath": "tournament-tours-8802-25-Jan-2023.xlsx",
         "htmlFileName": "simple-decoration-2023-dortmund.html"
       }
@@ -1230,14 +1195,12 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Раздолье",
           "Авось",
           "Эльфы"
         ],
-
         "inputExcelFilePath": "tournament-tours-8803-25-Jan-2023__1.xlsx",
         "htmlFileName": "easy-smolensk-5-2023-dortmund.html"
       }
@@ -1262,7 +1225,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Так получилось",
@@ -1273,7 +1235,6 @@
           "ЖмеR",
           "Сфинкс-party"
         ],
-
         "inputExcelFilePath": "tournament-tours-8835-20-Jan-2023.xlsx",
         "htmlFileName": "second-raven-2023-duesseldorf.html"
       }
@@ -1298,7 +1259,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Так получилось",
@@ -1310,7 +1270,6 @@
           "Авось",
           "Сфинкс-party"
         ],
-
         "inputExcelFilePath": "tournament-tours-8755-07-Jan-2023.xlsx",
         "htmlFileName": "olivier-cup-2023-duesseldorf.html"
       }
@@ -1335,7 +1294,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -1344,7 +1302,6 @@
           "Авось",
           "Эльфы"
         ],
-
         "inputExcelFilePath": "tournament-tours-8791-29-Dec-2022.xlsx",
         "htmlFileName": "nevmogotu-2022-dortmund.html"
       }
@@ -1373,7 +1330,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -1385,7 +1341,6 @@
           "Авось",
           "Счастливое число"
         ],
-
         "inputExcelFilePath": "tournament-tours-8669-28-Dec-2022.xlsx",
         "htmlFileName": "easy-smolensk-20-duesseldorf.html"
       }
@@ -1410,7 +1365,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "И",
@@ -1420,7 +1374,6 @@
           "ИК Ковчег",
           "Авось"
         ],
-
         "inputExcelFilePath": "tournament-tours-8633-13-Dec-2022.xlsx",
         "htmlFileName": "ekvestria-4-duesseldorf.html"
       }
@@ -1445,7 +1398,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Так получилось",
@@ -1455,7 +1407,6 @@
           "Авось",
           "Один в поле"
         ],
-
         "inputExcelFilePath": "tournament-tours-8561-24-Nov-2022_н.xlsx",
         "htmlFileName": "top-1000-2022-3-duesseldorf.html"
       }
@@ -1480,7 +1431,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Сфинкс-party",
@@ -1492,7 +1442,6 @@
           "Авось",
           "Так получилось"
         ],
-
         "inputExcelFilePath": "tournament-tours-8589-11-Nov-2022.xlsx",
         "htmlFileName": "triz-2022-4-duesseldorf.html"
       }
@@ -1517,7 +1466,6 @@
           }
         ]
       },
-
       "generatorConfig": {
         "visibleTeamNames": [
           "Эльфы",
@@ -1527,7 +1475,6 @@
           "Так получилось",
           "Вестфальский Мир"
         ],
-
         "inputExcelFilePath": "tournament-tours-7700-07-Nov-2022__2.xlsx",
         "htmlFileName": "ovsch-2022-3-dortmund.html"
       }
@@ -1565,16 +1512,15 @@
           }
         ]
       },
-
       "generatorConfig": {
-        "visibleTeamNames": [ // not all teams are visible
+        "visibleTeamNames": [
+          // not all teams are visible
           "В поисках мема",
           "Котобусер Тор",
           "Игрунки",
           "Авось",
           "Юнона"
         ],
-
         "inputExcelFilePath": "Результаты Большой игры - 4ОЧЧ.xlsx",
         "htmlFileName": "ochh-2022.html",
         "excelParser": "XlsxParser"
